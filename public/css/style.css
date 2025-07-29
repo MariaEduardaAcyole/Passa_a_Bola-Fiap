@@ -16,6 +16,8 @@ body {
     font-style: normal;
     font-variation-settings:
         "wdth" 100;
+    color: var(--preto);
+    display: grid;
 }
 
 /* --------------------- */
@@ -43,13 +45,7 @@ body {
     box-sizing: border-box;
 }
 
-body {
-    font-family: "roboto", sans-serif;
-    background-color: var(--fundo-bege);
-    color: var(--preto);
-    display: grid;
-    min-height: 100vh;
-}
+
 
 /* Container principal */
 .container {
