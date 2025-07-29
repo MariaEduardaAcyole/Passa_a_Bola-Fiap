@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Passa a Bola - Login</title>
+  <!-- FONTES -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="titulo">PASSA A BOLA</h1>
+    <h2 class="subtitulo">LOGIN</h2>
+
+    <form class="formulario" onsubmit="return false">
+      <label for="email">Email:</label>
+      <input type="email" id="email" required />
+
+      <label for="senha">Senha:</label>
+      <div class="senha-container">
+        <input type="password" id="senha" required />
+        <span class="toggle-olho" onclick="esconderSenha()"> <img src="../img/olho.gif" id="img-olho" alt=""></span>
+      </div>
+
+      <a href="#" class="link">Esqueceu a senha?</a>
+      <a href="./index.html" class="botao-entrar">
+        ENTRAR
+      </a>
+    </form>
+
+    <div class="divisoria">
+      <hr /><span>ou</span>
+      <hr />
+    </div>
+
+    <button class="botao-google">
+      <img src="../img/google 1.svg" />
+      Entrar com o Google
+    </button>
+
+    <p class="cadastro-texto">Ainda não tem uma conta?<br />
+      <a href="#" class="link-roxo">Vem jogar com a gente!</a>
+    </p>
+
+    <button class="botao-cadastro">CADASTRE-SE</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

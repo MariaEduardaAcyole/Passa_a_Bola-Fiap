@@ -1,0 +1,182 @@
+.container {
+  width: 100%;
+  max-width: 380px;
+  background-color: #f9e8e3;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 12px;
+  text-align: center;
+
+}
+
+.titulo {
+  color: #6c2c6b;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.subtitulo {
+  color: var(--cinza);
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+  width: 100%;
+}
+
+.formulario label {
+  color: black;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+#email,
+#senha {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  width: 100%;
+  font-size: 16px;
+  background: ---;
+}
+
+.senha-container {
+  position: relative;
+}
+
+.toggle-olho {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+
+}
+#img-olho{
+  width: 25px;
+  height: 25px;
+}
+.link {
+  color: var(--roxo);
+  font-size: 14px;
+  text-align: center;
+  display: block;
+  margin-top: 5px;
+  text-decoration: none;
+}
+
+.botao-entrar {
+  background-color: #ffffff;
+  border: 2px solid var(--roxo);
+  color: var(--roxo);
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-align: center;
+  text-decoration: none;
+}
+
+.botao-entrar:hover {
+  background-color: #f5d3f0;
+}
+
+.divisoria {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  gap: 10px;
+  color: #999;
+  width: 100%;
+}
+
+.divisoria hr {
+  flex: 1;
+  border: none;
+  border-top: 1px solid rgba(var(--roxo), 0.4);
+  /* 0.4 = 40% opacidade */
+}
+
+
+
+.botao-google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: 0px;
+  padding: 10px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  background-color: var(--fundo-bege);
+}
+
+.botao-google img {
+  width: 20px;
+  height: 20px;
+}
+
+.cadastro-texto {
+  margin: 20px 0 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.link-roxo {
+  color: #91418d;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.botao-cadastro {
+  text-transform: uppercase;
+  width: 100%;
+
+  background-color: #ffffff;
+  border: 2px solid var(--roxo);
+  color: var(--roxo);
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+
+.botao-cadastro:hover {
+  background-color: #f3f3f3;
+  box-shadow: 0 5px 0px 0px var(--verde);
+  /* sombra verde neon para baixo */
+  transition: all 0.4s ease;
+  border: 2px solid var(--verde);
+
+}
+
+
+@media (max-width: 400px) {
+  .container {
+    padding: 20px 16px;
+  }
+
+  .titulo {
+    font-size: 28px;
+  }
+
+  .subtitulo {
+    font-size: 20px;
+  }
+}
