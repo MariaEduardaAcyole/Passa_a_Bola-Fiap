@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Passa a Bola - Login</title>
+    <!-- FONTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/cadastro.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class="titulo">CADASTRE-SE</h1>
+      <h3 class="titulo-2">Entre no nosso time</h3>
+
+      <form class="formulario" onsubmit="return false">
+        <label for="text">Nome Completo:</label>
+        <input type="text" class="campos-cadastro" id="nome" required />
+
+        <label for="email">Email:</label>
+        <input type="email" class="campos-cadastro" id="email" required />
+
+        <label for="senha">Criar Senha:</label>
+        <div class="senha-container">
+          <input type="password" class="campos-cadastro" id="senha" required />
+          <span class="toggle-olho" onclick="esconderSenha()">
+            <img src="../img/olho.gif" id="img-olho" alt="" />
+          </span>
+        </div>
+
+        <label for="CPF">CPF:</label>
+        <input type="number" class="campos-cadastro" id="cpf" required />
+
+        <label for="apelido">Apelido:</label>
+        <input type="text" class="campos-cadastro" id="apelido" required />
+
+        <label for="data">Data de Nascimento:</label>
+        <input
+          type="date"
+          class="campos-cadastro"
+          id="data-nascimento"
+          required
+        />
+
+        <label for="data">Perna dominante:</label>
+<div class="caixa-perna-dominante">
+        <button class="perna-dominante">Esquerda</button>
+        <button class="perna-dominante">Direita</button>
+</div>
+
+<div class="caixa-selects">
+        <select id="posicao-campo" name="posicao-campo">
+          <option value="opcao" disabled selected>Posição em campo</option>
+          <option value="opcao1">Opção 1</option>
+          <option value="opcao2">Opção 1</option>
+          <option value="opcao3">Opção 1</option>
+        </select>
+
+           <select id="cidade" name="cidade">
+          <option value="opcao" disabled selected>Cidade</option>São Paulo</option>
+          <option value="opcao2">Osasco</option>
+          <option value="opcao3">Guarulhos</option>
+        </select>
+</div>
+        <button class="botao-cadastrar" href="./index.html">CADASTRAR</button>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

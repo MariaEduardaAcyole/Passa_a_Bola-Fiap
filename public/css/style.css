@@ -76,7 +76,7 @@ main {
 .titulo {
     color: var(--branco);
     padding: 5px;
-    font-size: 22px;
+    font-size: 26px;
     font-weight: bold;
 }
 
@@ -88,7 +88,7 @@ main {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    font-size: 24px;
+    font-size: 18px;
     margin: 5px;
     text-align: center;
     font-family: "Roboto", sans-serif;
