@@ -1,0 +1,192 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-weight: 600;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+    color: var(--preto);
+    display: grid;
+    
+}
+form{
+    background-color: red;
+}
+/* --------------------- */
+/* 🎨 VARIÁVEIS DE CORES */
+/* --------------------- */
+:root {
+    --roxo: rgb(114, 74, 112);
+    --roxo-forte: #7D0D8B;
+    --fundo-bege: #F8EBE3;
+    --rosa-claro: #F7DFD9;
+    --cinza: #8D6E6E;
+    --rosa: rgb(237, 40, 67);
+    --verde: #76C52D;
+    --branco: #ffffff;
+    --preto: #000000;
+    --sombra: rgba(0, 0, 0, 0.1);
+}
+
+/* ------------------ */
+/* 🌐 RESET E PADRÕES */
+/* ------------------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+/* Container principal */
+.container {
+    width: 100vw;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---------------- */
+/* 📍 ELEMENTOS GERAIS */
+/* ---------------- */
+
+main {
+    width: 100%;
+    padding: 1px;
+}
+
+/* ---------------- */
+/* 📌 TÍTULOS PADRÕES */
+/* ---------------- */
+
+.titulo {
+    color: var(--branco);
+    padding: 5px;
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.titulo-2 {
+    color: var(--roxo-forte);
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 18px;
+    margin: 5px;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    line-height: normal;
+}
+
+/* ---------------- */
+/* 🧭 NAVEGAÇÃO E HEADER */
+/* ---------------- */
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+nav {
+    background-color: var(--roxo);
+    width: 100%;
+    display: grid;
+    grid-template-columns: 90% 10%;
+    align-items: center;
+}
+
+.icone {
+    width: 32px;
+    grid-column: 2/3;
+}
+
+#txt-chamativo {
+    text-align: center;
+    margin-top: 5px;
+}
+
+/* ---------------- */
+/* 🟪 LINHAS DECORATIVAS */
+/* ---------------- */
+
+#linha-1 {
+    border: 3px solid var(--roxo);
+    border-radius: 20px;
+    width: 90%;
+    margin: 20px;
+}
+
+#linha-2 {
+    border: 2px solid var(--roxo);
+    border-radius: 20px;
+    width: 40%;
+    margin: 20px;
+}
+
+
+/* ---------------- */
+/* 📱 MENU INFERIOR */
+/* ---------------- */
+
+.menu-inferior {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  background-color: #6E4A6B;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 10;
+}
+
+.menu-inferior a {
+  text-decoration: none;
+}
+
+.icon-menu-inferior {
+  width: 50px;
+  height: 50px;
+}
+
+.botao-central {
+  border-radius: 100%;
+  background-color: var(--roxo);
+  transform: translateY(-25%);
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.botao-central a {
+  border-radius: 50%;
+}
