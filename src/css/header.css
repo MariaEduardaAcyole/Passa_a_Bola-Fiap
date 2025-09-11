@@ -1,0 +1,16 @@
+
+.header{
+    width: 100%;
+}
+.nav-header{
+    background-color: var(--roxo);
+    width: 100%;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2%;
+}
+.titulo-header{
+    color: white;
+}

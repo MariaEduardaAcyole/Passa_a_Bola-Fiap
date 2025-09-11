@@ -1,30 +1,82 @@
 /* corpo */
-body{
-    overflow-y: auto; /* scroll padrão */
+.corpo-home {
+  overflow-y: auto;
+  /* scroll padrão */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 
 }
-.container{
-    min-height: 100vh; /* garante que o container ocupe a tela inteira */
-  overflow-y: auto;  /* permite scroll se o conteúdo passar da altura */
 
+.container {
+  min-height: 100vh;
+  /* garante que o container ocupe a tela inteira */
+  overflow-y: auto;
+  /* permite scroll se o conteúdo passar da altura */
+
+}
+
+.img-capa-home {
+  width: 100%;
+}
+
+.txt-destaque-home {
+  text-align: center;
+}
+
+.linha-home {
+  border: 3px black solid;
+}
+
+.titulo-2-home {
+  color: var(--roxo-forte);
+  text-align: center;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 18px;
+  margin: 5px;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  line-height: normal;
+  padding: 1%;
+}
+
+.section-home {
+  width: 100%;
 }
 
 /* ---------------- */
 /* 🎠 CARROSSEL */
 /* ---------------- */
-
-.carrossel-container {
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
+.section-carrossel {
   display: flex;
-  gap: 20px;
-  padding-bottom: 10px;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  gap: 5%;
+  overflow-y: scroll;
+  height: 50vh;
 }
 
-.carrossel-container::-webkit-scrollbar {
+/* Esconde a barra horizontal no carrossel */
+.scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+.txt-destaque-home {
+  width: 100%;
+  text-align: center;
+}
+
+.linha-home {
+  margin: 2%;
 }
 
 .card {
@@ -33,10 +85,12 @@ body{
   background: var(--rosa-claro);
   border: 2px solid var(--verde);
   border-radius: 10px;
-  width: 40%;
+  width: 30%;
+  height: 50vh;
   box-shadow: 0 4px 6px var(--sombra);
   padding: 10px;
 }
+
 
 .card img {
   width: 100%;
@@ -61,7 +115,7 @@ body{
 }
 
 .dia-da-semana {
-font-weight: 400;
+  font-weight: 400;
 }
 
 .localizacao {
@@ -81,6 +135,77 @@ font-weight: 400;
 
 .txt-localizacao {
   grid-column: 2/3;
+}
+
+/* RESULTADOS */
+.container-resultado {
+  display: flex;
+  justify-content: center;
+flex-direction: column;
+}
+
+.caixa-ultimo-resultado {
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+  width: 50%;
+  margin-top: 5%;
+    border-radius: 20px;
+  border: 1px solid #46F56A;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+  display: grid;
+  grid-template-columns: 15% 70% 15%;
+  grid-template-rows: 30% 50% 20%;
+  justify-items: center;
+align-items: center;
+padding: 10px;
+
+}
+.caixa-proximo-jogo {
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+  width: 50%;
+  margin-top: 5%;
+    border-radius: 20px;
+  border: 1px solid #46F56A;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+  display: grid;
+  grid-template-columns: 15% 70% 15%;
+  grid-template-rows: 30% 50% 20%;
+  justify-items: center;
+align-items: center;
+padding: 10px;
+
+}
+
+.icon-taca{
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-column: 1/2;
+}
+.titulo-resultado{
+  grid-column: 2/3;
+}
+.bandeira-brasil-resultado{
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+.bandeira-argentina-resultado{
+  grid-column: 3/4;
+  grid-row: 2/3;
+}
+.placar-resultado{
+  grid-column: 2/3;
+  grid-row: 2/3;
+  display: flex;
+  justify-content: center
+}
+.data-jogo-resultado{
+  grid-column: 2/3;
+  grid-row: 3/4;
+  display: flex;
+justify-content: center
+
 }
 
 /* ---------------- */
@@ -122,7 +247,65 @@ font-weight: 400;
   align-items: center;
 }
 
-.espaco-do-menu-inferior
-{
-height: 100px;
+.espaco-do-menu-inferior {
+  height: 100px;
+}
+
+/* Hero section */
+.hero {
+  text-align: center;
+  padding: 150px 20px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+/* Elementos decorativos circulares */
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(106, 27, 154, 0.15);
+  animation: float 6s infinite ease-in-out;
+}
+
+.circle.small {
+  width: 80px;
+  height: 80px;
+  top: 30%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.circle.medium {
+  width: 150px;
+  height: 150px;
+  bottom: 10%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.circle.large {
+  width: 250px;
+  height: 250px;
+  top: -80px;
+  right: -100px;
+  animation-delay: 4s;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
 }

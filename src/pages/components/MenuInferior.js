@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function MenuInferior() {
   return (
-    <nav className="fixed bottom-0 left-0 w-full bg-white border-t shadow flex justify-around items-center h-20">
+    <nav className="fixed bottom-0 left-0 w-full bg-white border-t shadow flex justify-around items-center h-20 nav-inferior">
       <Image src="/img/icon-bola.png" alt="Bola" width={32} height={32} />
       <Image src="/img/icon-estrela.png" alt="Estrela" width={32} height={32} />
       <div className="-mt-6">

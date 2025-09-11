@@ -13,31 +13,37 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="bg-gray-100 font-['Roboto'] text-gray-800 min-h-screen pb-24">
-      <div className="max-w-xl mx-auto p-4">
-        <Header />
+    <div className="w-full corpo-home">
+      <Header />
 
-        <section className="mb-6">
-          <h2 className="text-xl font-bold mb-2">PRÓXIMOS JOGOS</h2>
-          <div className="flex overflow-x-auto gap-4 snap-x snap-mandatory pb-2">
+      <h2 className="text-2xl font-semibold txt-destaque-home">
+        Já entrou no time,<br />
+        agora entre em campo! 🏟️⚽
+      </h2>
+
+      <img src="/img/capa.svg" alt="Capa do site" width={500} height={200} className="img-capa-home" />
+      
+      <h2 className="text-xl font-bold mb-2 titulo-2-home">Próximos jogos</h2>
+
+      <section className="section-carrossel">
+          {/* Carrossel */}
+         
             {jogos.map((jogo, index) => (
-              <CardJogo key={index} {...jogo} />
+                <CardJogo {...jogo} />
             ))}
-          </div>
-        </section>
 
-        <section className="mb-6">
-          <UltimoResultado dia="09" mesAno="Junho/2025" diaSemana="Domingo" local="Av das Nações Unidas" />
-        </section>
+      </section>
 
-        <section className="mb-6">
-          <Feed novosPosts={20} />
-        </section>
-      </div>
 
-      <div className="h-20">
-              <MenuInferior />
-        </div> {/* Espaço para o menu */}
+      <section className="mb-6 section-home"> 
+        <UltimoResultado />
+      </section>
+
+      <section className="mb-6 section-home">
+        <Feed novosPosts={20} />
+      </section>
+
+      <MenuInferior />
     </div>
   );
 }

@@ -7,17 +7,12 @@
 body {
     font-family: "Roboto", sans-serif;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
     font-weight: 600;
     font-optical-sizing: auto;
     font-style: normal;
     font-variation-settings:
         "wdth" 100;
     color: var(--preto);
-    display: grid;
-    
 }
 form{
     background-color: red;
@@ -103,20 +98,6 @@ main {
 /* 🧭 NAVEGAÇÃO E HEADER */
 /* ---------------- */
 
-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-nav {
-    background-color: var(--roxo);
-    width: 100%;
-    display: grid;
-    grid-template-columns: 90% 10%;
-    align-items: center;
-}
 
 .icone {
     width: 32px;
@@ -146,6 +127,11 @@ nav {
     margin: 20px;
 }
 
+
+.caixa-card{
+    display: flex;
+    gap: 30px;
+}
 
 /* ---------------- */
 /* 📱 MENU INFERIOR */
