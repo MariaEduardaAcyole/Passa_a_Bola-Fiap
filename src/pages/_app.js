@@ -4,6 +4,7 @@ import '../../globals.css'; // importa o CSS global
 import '../css/login.css'; // importa o CSS do login (global ou module)
 import '../css/home.css';
 import '../css/perfil.css'
+import '../css/lista-jogos.css'
 //components
 import '../css/header.css'; // importa o CSS do home (global ou module)
 import '../css/menuInferior.css'
