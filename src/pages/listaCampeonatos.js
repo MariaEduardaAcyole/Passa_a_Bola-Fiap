@@ -9,13 +9,13 @@ export default function ListaCampeonatos() {
       <Header />
 
       <h2 className="titulo-2">Próximos Campeonatos</h2>
-      <h3 className="subtitulo">Escolha em qual campeonato você quer participar</h3>
+      <h3 className="listaCampeonatos-subtitulo">Escolha em qual campeonato você quer participar</h3>
 
-      <div className="containerCampeonatos">
+      <section className="containerCampeonatos">
         <ItemCampeonato />
         <ItemCampeonato />
         <ItemCampeonato />
-      </div>
+      </section>
 
       {/* Menu Inferior */}
       <MenuInferior />

@@ -1,0 +1,92 @@
+.listaCampeonatos-corpo {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.listaCampeonatos-subtitulo {
+    width: 100%;
+    text-align: center;
+}
+
+.containerCampeonatos {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5%;
+    width: 100%;
+    gap: 20px;
+}
+
+.listaCampeonatos-card-campeonato-criado {
+    border-radius: 20px;
+    background: rgba(237, 40, 67, 0.06);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 30% 15% 15% 20%;
+    justify-items: center;
+    gap: 10px;
+    width: 90%;
+    padding: 5%;
+}
+
+.listaCampeonatos-nome-campeonato {
+    grid-column: 1/3;
+    text-align: center;
+}
+
+.listaCampeonatos-data {
+    display: flex;
+    align-items: center;
+    padding: 3px;
+    grid-column: 1/3;
+}
+
+.listaCampeonatos-localizacao {
+    grid-column: 1/3;
+}
+
+.listaCampeonatos-btn-participar {
+    background: none;
+    /* remove cor de fundo */
+    border: none;
+    /* remove borda */
+    outline: none;
+    /* remove outline ao focar */
+    box-shadow: none;
+    height: 100%;
+    grid-column: 1/3;
+    background-color: var(--roxo);
+    color: white;
+    font-weight: bold;
+    width: 90%;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+.listaCampeonatos-btn-inscrito {
+    background: none;
+    /* remove cor de fundo */
+    border: none;
+    /* remove borda */
+    outline: none;
+    /* remove outline ao focar */
+    box-shadow: none;
+    height: 100%;
+    grid-column: 1/3;
+    background-color: var(--verde);
+    color: white;
+    font-weight: bold;
+    width: 90%;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
