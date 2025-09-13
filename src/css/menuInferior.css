@@ -1,3 +1,18 @@
-.nav-inferior{
-    display: flex;
+.nav-inferior {
+  display: flex;
+  width: 100%;
+  border-top-left-radius: 20px;   /* canto superior esquerdo */
+  border-top-right-radius: 20px;  /* canto superior direito */
+  background-color: var(--roxo);
+  height: 15vh;
+  align-items: center;
+  justify-content: space-around;
+  position: fixed;  /* fixa o menu na tela */
+  z-index: 1000;    /* fica por cima dos outros elementos */
+  bottom: 0;
+  padding: 2%;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2); /* opcional */
+}
+footer{
+    height: 18vh;
 }
