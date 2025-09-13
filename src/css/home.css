@@ -1,36 +1,23 @@
-/* corpo */
-.corpo-home {
-    overflow-y: auto;
+
+.home-corpo{
     width: 100%;
-    display: flex
-;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+        align-items: stretch;
 
 }
-
-.container {
-  min-height: 100vh;
-  /* garante que o container ocupe a tela inteira */
-  overflow-y: auto;
-  /* permite scroll se o conteúdo passar da altura */
-
-}
-
-.img-capa-home {
+.home-img-capa {
   width: 100%;
 }
 
-.txt-destaque-home {
-  text-align: center;
-}
 
-.linha-home {
+.home-linha {
   border: 3px black solid;
 }
 
-.titulo-2-home {
+.home-titulo-2 {
   color: var(--roxo-forte);
   text-align: center;
   font-weight: bold;
@@ -47,18 +34,17 @@
   width: 100%;
 }
 
-.section-home {
+.home-section {
   width: 100%;
 }
 
 /* ---------------- */
 /* 🎠 CARROSSEL */
 /* ---------------- */
-.section-carrossel {
+.home-section-carrossel {
   display: flex;
   gap: 5%;
   overflow-y: scroll;
-  height: 50vh;
 }
 
 /* Esconde a barra horizontal no carrossel */
@@ -72,55 +58,54 @@
 }
 
 
-.txt-destaque-home {
+.home-txt-destaque {
   width: 100%;
   text-align: center;
 }
 
-.linha-home {
+.home-linha {
   margin: 2%;
 }
 
-.card {
+.home-card {
   flex: 0 0 auto;
   scroll-snap-align: center;
   background: var(--rosa-claro);
   border: 2px solid var(--verde);
   border-radius: 10px;
   width: 30%;
-  height: 50vh;
   box-shadow: 0 4px 6px var(--sombra);
   padding: 10px;
 }
 
 
-.card img {
+.home-card img {
   width: 100%;
   border-radius: 10px;
 }
 
-.info {
+.home-info {
   font-size: 20px;
   display: grid;
   grid-template-rows: repeat(4, auto);
   text-align: center;
 }
 
-.dia {
+.home-dia {
   color: var(--roxo-forte);
   font-size: 24px;
 }
 
-.mes-ano {
+.home-mes-ano {
   font-weight: bold;
   margin-top: 5px;
 }
 
-.dia-da-semana {
+.home-dia-da-semana {
   font-weight: 400;
 }
 
-.localizacao {
+.home-localizacao {
   font-size: 14px;
   display: grid;
   grid-template-columns: 25% 75%;
@@ -129,18 +114,18 @@
   text-align: start;
 }
 
-.img-localizacao {
+.home-img-localizacao {
   width: 16px;
   height: 16px;
   aspect-ratio: 1/1;
 }
 
-.txt-localizacao {
+.home-txt-localizacao {
   grid-column: 2/3;
 }
 
 /* RESULTADOS */
-.container-resultado {
+.home-container-resultado {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -148,7 +133,7 @@
   align-items: center;
 }
 
-.caixa-ultimo-resultado {
+.home-caixa-ultimo-resultado {
   filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
   width: 50%;
   border-radius: 20px;
@@ -164,7 +149,7 @@
 
 }
 
-.caixa-proximo-jogo {
+.home-caixa-proximo-jogo {
   filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
   width: 50%;
   margin-top: 5%;
@@ -181,35 +166,35 @@
 
 }
 
-.icon-taca {
+.home-icon-taca {
   display: grid;
   align-items: center;
   justify-content: center;
   grid-column: 1/2;
 }
 
-.titulo-resultado {
+.home-titulo-resultado {
   grid-column: 2/3;
 }
 
-.bandeira-brasil-resultado {
+.home-bandeira-brasil-resultado {
   grid-column: 1/2;
   grid-row: 2/3;
 }
 
-.bandeira-argentina-resultado {
+.home-bandeira-argentina-resultado {
   grid-column: 3/4;
   grid-row: 2/3;
 }
 
-.placar-resultado {
+.home-placar-resultado {
   grid-column: 2/3;
   grid-row: 2/3;
   display: flex;
   justify-content: center
 }
 
-.data-jogo-resultado {
+.home-data-jogo-resultado {
   grid-column: 2/3;
   grid-row: 3/4;
   display: flex;
@@ -221,26 +206,25 @@
 /* ---------------- */
 
 
-.icone-feed {
+.home-icone-feed {
   width: 30px;
   height: 35px;
 }
 
 
-.acesse-feed {
+.home-acesse-feed {
     display: flex;
 align-items: center;
 flex-direction: column  ;
 }
 
-.icone-feed {
+.home-icone-feed {
   width: 40px;
   margin-left: 8px;
   vertical-align: middle;
 }
-.novos-posts {
+.home-novos-posts {
   width: 80vw;
-  height: 20vh;
 display: flex;
 justify-content: center;
   position: relative;
@@ -255,7 +239,7 @@ justify-content: center;
 }
 
 /* base dos círculos */
-.circulo {
+.home-circulo {
   position: absolute;
   width: 50px;
   height: 50px;
@@ -268,19 +252,19 @@ justify-content: center;
 }
 
 /* cores */
-.circulo-roxo {
+.home-circulo-roxo {
   background: #9c27b0;
   top: 20px;
   left: 20px;
 }
 
-.circulo-rosa {
+.home-circulo-rosa {
   background: var(--roxo-forte);
   bottom: 20px;
   right: 20px;
   animation-delay: 3s; /* começa em outro tempo */
 }
-.circulo-branco {
+.home-circulo-branco {
   background: white;
   bottom: 5px;
   right: 90px;
@@ -315,25 +299,7 @@ justify-content: center;
 }
 }
 
-.espaco-do-menu-inferior {
-  height: 100px;
-}
 
-/* Hero section */
-.hero {
-  text-align: center;
-  padding: 150px 20px 60px;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero h1 {
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 20px;
-  font-weight: 700;
-}
-
-.section-home{
+.home-section{
 margin-top: 1%;
 }

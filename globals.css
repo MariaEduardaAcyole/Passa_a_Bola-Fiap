@@ -10,14 +10,25 @@ body {
     font-weight: 600;
     font-optical-sizing: auto;
     font-style: normal;
-    font-variation-settings:
-        "wdth" 100;
+    /* font-variation-settings:
+        "wdth" 100; */
     color: var(--preto);
+    width: 100vw;
 }
-form{
-    background-color: red;
+.home-corpo,
+.perfil-corpo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  min-height: 100vh; /* ocupa toda a altura da tela */
+  padding-bottom: 70px; /* espaço para o menu inferior */
 }
-/* --------------------- */
+
+
+
+/*------------------ */
 /* 🎨 VARIÁVEIS DE CORES */
 /* --------------------- */
 :root {

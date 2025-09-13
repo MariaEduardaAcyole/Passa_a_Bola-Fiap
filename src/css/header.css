@@ -1,16 +1,14 @@
 
-.header{
+.Header-header{
     width: 100%;
-}
-.nav-header{
+    height: 100%;
+
     background-color: var(--roxo);
-    width: 100%;
-    
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 2%;
 }
-.titulo-header{
+.Header-titulo-header{
     color: white;
 }
