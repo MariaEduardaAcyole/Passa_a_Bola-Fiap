@@ -6,12 +6,12 @@
 
 body {
     font-family: "Roboto", sans-serif;
-    display: flex;
+    /*display: flex;*/
     font-weight: 600;
     font-optical-sizing: auto;
     font-style: normal;
-    /* font-variation-settings:
-        "wdth" 100; */
+    /*font-variation-settings:
+        "wdth" 100;*/
     color: var(--preto);
     width: 100vw;
 }
