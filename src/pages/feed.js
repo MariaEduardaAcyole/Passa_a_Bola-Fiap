@@ -31,7 +31,6 @@ export default function Feed() {
 
     if (error) console.error("Erro ao carregar posts:", error);
     else {
-      // adiciona propriedades de curtidas
       const postsWithLikes = data.map(post => ({ ...post, curtidas: 0, curtiu: false }));
       setPosts(postsWithLikes);
     }
@@ -41,10 +40,10 @@ export default function Feed() {
   async function handlePost() {
     if (!newPost.trim()) return;
 
-    const { data, error } = await supabase.from("posts").insert([
+    const { error } = await supabase.from("posts").insert([
       {
         usuario: user?.email || "Anônimo",
-        avatar: "/img/avatar-corinthians.png",
+        avatar: "/img/avatar-saopaulo.png",
         texto: newPost,
         imagem: null,
       },
@@ -70,57 +69,65 @@ export default function Feed() {
   };
 
   return (
-    <div className="feed-container">
+    <>
+      {/* ===== Topbar fixa no topo ===== */}
       <Header />
 
-      {posts.map(post => (
-        <div key={post.id} className="post-card">
-          <div className="post-header">
-            <img src={post.avatar} alt="avatar" className="avatar" />
-            <span className="username">{post.usuario}</span>
-          </div>
-          <p className="post-text">{post.texto}</p>
-          {post.imagem && <img src={post.imagem} alt="post" className="post-img" />}
-          <div className="post-actions">
-            <button className="btn-action" onClick={() => handleCurtir(post.id)}>
-              <img
-                src={post.curtiu ? "/img/icon-coracao.png" : "/img/icon-coracao.png"}
-                className="icon-coracao"
-                alt="Curtir"
+      {/* ===== Conteúdo: compensa a altura da topbar e do menu inferior ===== */}
+      <main className="page-main">
+        <section className="feed-container">
+          {posts.map(post => (
+            <div key={post.id} className="post-card">
+              <div className="post-header">
+                <img src={post.avatar} alt="avatar" className="avatar" />
+                <span className="username">{post.usuario}</span>
+              </div>
+              <p className="post-text">{post.texto}</p>
+              {post.imagem && <img src={post.imagem} alt="post" className="post-img" />}
+              <div className="post-actions">
+                <button className="btn-action" onClick={() => handleCurtir(post.id)}>
+                  <img
+                    src={post.curtiu ? "/img/icon-coracao.png" : "/img/icon-coracao.png"}
+                    className="icon-coracao"
+                    alt="Curtir"
+                  />
+                </button>
+                <span>{post.curtidas} curtidas</span>
+              </div>
+            </div>
+          ))}
+
+          <button className="fab" onClick={() => setShowForm(true)}>
+            <img src="/img/icon-lapis.png" className="icone" alt="Novo post" />
+          </button>
+        </section>
+
+        {showForm && (
+          <div className="modal-overlay" onClick={() => setShowForm(false)}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <h2>Novo Post</h2>
+              <textarea
+                placeholder="Escreva algo..."
+                value={newPost}
+                onChange={(e) => setNewPost(e.target.value)}
               />
-            </button>
-            <span>{post.curtidas} curtidas</span>
-          </div>
-        </div>
-      ))}
-
-      <button className="fab" onClick={() => setShowForm(true)}>
-        <img src="/img/icon-lapis.png" className="icone" />
-      </button>
-
-      {showForm && (
-        <div className="modal-overlay" onClick={() => setShowForm(false)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <h2>Novo Post</h2>
-            <textarea
-              placeholder="Escreva algo..."
-              value={newPost}
-              onChange={(e) => setNewPost(e.target.value)}
-            />
-            <div className="modal-actions">
-              <button className="btn-cancel" onClick={() => setShowForm(false)}>
-                Cancelar
-              </button>
-              <button className="btn-post" onClick={handlePost}>
-                Publicar
-              </button>
+              <div className="modal-actions">
+                <button className="btn-cancel" onClick={() => setShowForm(false)}>
+                  Cancelar
+                </button>
+                <button className="btn-post" onClick={handlePost}>
+                  Publicar
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
 
-      <footer className="feed-rodape"></footer>
+        <footer className="feed-rodape"></footer>
+      </main>
+
+      {/* Se o MenuInferior for fixo, o CSS abaixo já reserva espaço */}
       <MenuInferior />
-    </div>
+    </>
   );
 }
