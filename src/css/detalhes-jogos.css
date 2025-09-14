@@ -1,0 +1,129 @@
+.detalhesJogo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.detalhesJogo-card {
+    background: #fff;
+    padding: 5px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 30% 33% 30%;
+    grid-template-rows: 10% 10% 10% 40vh 10% 10% 10% 10% 10% 10%;
+    justify-content: center;
+    justify-items: center;
+
+}
+
+.detalhesJogo-card label {
+ 
+     display: flex
+;
+    flex-wrap: nowrap;
+    flex-direction: column;
+
+}
+.detalhesJogo-card select {
+    height: 32px;
+
+}
+
+.detalhesJogo-card input {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-top: 4px;
+}
+
+.detalhesJogo-botao-salvar {
+    margin-top: 20px;
+    padding: 12px;
+    background: var(--roxo);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    grid-row: 8/9;
+    grid-column: 1/4;
+}
+
+.detalhesJogo-botao-salvar:hover {
+    background: var(--roxo-forte);
+}
+
+.detalhes-inputs {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-top: 4px;
+}
+
+.detalhesJogo-nome {
+    width: 90%;
+    grid-column: 1/4;
+    grid-row: 1/2;
+}
+
+.detalhesJogo-dia-mes-ano {
+    width: 90%;
+
+    grid-row: 2/3;
+    grid-column: 1/4;
+}
+
+.detalhesJogo-hora {
+    width: 90%;
+
+    grid-row: 3/4;
+    grid-column: 1/4;
+}
+
+.detalhesJogo-img-campo {
+    width: 90%;
+
+    grid-row: 4/5;
+    grid-column: 1/4;
+    height: 100%;
+}
+
+.detalhesJogo-campo {
+    width: 90%;
+
+    grid-row: 5/6;
+    grid-column: 1/4;
+    height: 100%;
+}
+
+.detalhesJogo-localizacao {
+    width: 90%;
+    display: flex;
+    grid-row: 6/7;
+    grid-column: 1/4;
+    
+}
+
+.detalhesJogo-vagas {
+    width: 90%;
+    grid-row: 7/8;
+    grid-column: 1/2;
+    margin-top: 10px;
+}
+
+.detalhesJogo-nivel {
+    width: 90%;
+    margin-top: 10px;
+    grid-row: 7/8;
+    grid-column: 2/4;
+}
+.detalhes-icone-localizacao{
+    width: 24px;
+    height: 24px;
+}

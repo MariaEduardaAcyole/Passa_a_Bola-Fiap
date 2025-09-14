@@ -7,6 +7,7 @@ import '../css/perfil.css'
 import '../css/lista-jogos.css'
 import '../css/listaCampeonato.css'
 import '../css/feed.css'
+import '../css/detalhes-jogos.css'
 //components
 import '../css/header.css'; // importa o CSS do home (global ou module)
 import '../css/menuInferior.css'

@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function MenuInferior() {
   return (
     <nav className="MenuInferior-nav-inferior">
-      <Link href="../listaJogos"><img src="/img/icon-campo.png" alt="Bola" width={40} height={40} /></Link>
+      <Link href="../listaJogosEditar"><img src="/img/icon-campo.png" alt="Bola" width={40} height={40} /></Link>
 
       <Link href="../feed"><img src="/img/icon-estrela.png" alt="Estrela" width={40} height={40} /></Link>
 

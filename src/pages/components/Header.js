@@ -9,10 +9,12 @@ export default function Header() {
   const titles = {
     "/home": "Home",
     "/perfil": "Perfil",
-    "/lista-jogos": "Jogos",
+    "/listaJogosEditar": "Jogos",
     "/configuracoes": "Configurações",
     "/feed": "Feed",
-    "/listaCampeonatos":"Campeonatos"
+    "/detalhes-jogo/1":"Detalhes",
+    "/listaCampeonatos":"Campeonatos",
+
   };
     const title = titles[path] || "Aplicativo";
 
