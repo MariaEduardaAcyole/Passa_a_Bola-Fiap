@@ -5,13 +5,16 @@ import MenuInferior from "../pages/components/MenuInferior";
 export default function Feed() {
   const [showForm, setShowForm] = useState(false);
 
-  const posts = [
+  // Agora os posts ficam no estado para poder atualizar curtidas
+  const [posts, setPosts] = useState([
     {
       id: 1,
       usuario: "Maria",
       avatar: "/img/avatar-corinthians.png",
       texto: "Acabei de treinar com o time! 💪⚽",
       imagem: "/img/post-corinthians.png",
+      curtidas: 0,
+      curtiu: false,
     },
     {
       id: 2,
@@ -19,15 +22,34 @@ export default function Feed() {
       avatar: "/img/avatar-saopaulo.png",
       texto: "Ansiosa para o campeonato do fim de semana 😍🔥",
       imagem: "/img/post-saopaulo.png",
+      curtidas: 3,
+      curtiu: false,
     },
-        {
+    {
       id: 3,
       usuario: "Eduarda",
       avatar: "/img/avatar-saopaulo.png",
       texto: "Ansiosa para o campeonato do fim de semana 😍🔥",
       imagem: "/img/post-saopaulo.png",
+      curtidas: 1,
+      curtiu: false,
     },
-  ];
+  ]);
+
+  // Função para curtir/descurtir
+  const handleCurtir = (id) => {
+    setPosts((prevPosts) =>
+      prevPosts.map((post) =>
+        post.id === id
+          ? {
+              ...post,
+              curtiu: !post.curtiu,
+              curtidas: post.curtiu ? post.curtidas - 1 : post.curtidas + 1,
+            }
+          : post
+      )
+    );
+  };
 
   return (
     <div className="feed-container">
@@ -45,15 +67,26 @@ export default function Feed() {
             <img src={post.imagem} alt="post" className="post-img" />
           )}
           <div className="post-actions">
-            <button className="btn-action">
-              <img src="/img/icon-coracao.png" className="icon-coracao" />
+            <button className="btn-action" onClick={() => handleCurtir(post.id)}>
+              <img
+                src={
+                  post.curtiu
+                    ? "/img/icon-coracao.png"
+                    : "/img/icon-coracao.png"
+                }
+                className="icon-coracao"
+                alt="Curtir"
+              />
             </button>
+            <span>{post.curtidas} curtidas</span>
           </div>
         </div>
       ))}
 
       {/* Botão flutuante */}
-      <button className="fab" onClick={() => setShowForm(true)}><img src="/img/icon-lapis.png" className="icone" /></button>
+      <button className="fab" onClick={() => setShowForm(true)}>
+        <img src="/img/icon-lapis.png" className="icone" alt="Novo post" />
+      </button>
 
       {/* Formulário modal */}
       {showForm && (
@@ -76,7 +109,6 @@ export default function Feed() {
 
       {/* Menu Inferior */}
       <MenuInferior />
-
     </div>
   );
 }

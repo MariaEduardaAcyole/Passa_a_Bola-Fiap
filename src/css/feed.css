@@ -188,5 +188,7 @@
   background: #aaa;
 }
 .feed-rodape{
-    height: 500vh;
+        width: 100%;
+
+    height: 50vh;
 }
