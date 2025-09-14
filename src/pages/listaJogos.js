@@ -1,6 +1,6 @@
 import MenuInferior from "./components/MenuInferior";
 import Header from "./components/Header";
-import ItemListaJogos from "./components/itemListaJogos";
+import ItemListaJogos from "./components/ItemListaJogos";
 
 export default function listaJogos() {
   return (

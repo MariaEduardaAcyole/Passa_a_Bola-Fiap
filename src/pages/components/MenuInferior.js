@@ -15,7 +15,7 @@ export default function MenuInferior() {
       <Link href="../perfil">
         <img src="/img/icon-perfil.png" alt="Perfil" width={40} height={40} />
       </Link>
-      <Link href="../perfil">
+      <Link href="../Cadastro">
       <img src="/img/icon-config.png" alt="Configurações" width={40} height={40} />
       </Link>
     </nav >

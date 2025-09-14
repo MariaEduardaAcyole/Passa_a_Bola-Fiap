@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 
 export default function Header() {
-    const router = useRouter();
+  const router = useRouter();
   const path = usePathname();
 
   const titles = {
@@ -12,7 +12,8 @@ export default function Header() {
     "/lista-jogos": "Jogos",
     "/configuracoes": "Configurações",
     "/feed": "Feed",
-    "/listaCampeonatos":"Campeonatos"
+    "/listaCampeonatos":"Campeonatos",
+    "/CadastroJogos":"CadastroJogos"
   };
     const title = titles[path] || "Aplicativo";
 
