@@ -11,6 +11,7 @@ export default function Header() {
     "/perfil": "Perfil",
     "/lista-jogos": "Jogos",
     "/configuracoes": "Configurações",
+    "/feed": "Feed",
     "/listaCampeonatos":"Campeonatos"
   };
     const title = titles[path] || "Aplicativo";

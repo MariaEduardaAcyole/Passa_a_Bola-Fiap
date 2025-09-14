@@ -90,3 +90,9 @@
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
 }
+.itemCampeonato-icon{
+      display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-column: 1/2;
+}
