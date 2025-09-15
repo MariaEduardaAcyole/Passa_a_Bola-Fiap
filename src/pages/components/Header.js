@@ -12,6 +12,11 @@ export default function Header() {
     "/listaJogosEditar": "Jogos",
     "/configuracoes": "Configurações",
     "/feed": "Feed",
+<<<<<<< Updated upstream
+=======
+    "/listaCampeonatos":"Campeonatos",
+    "/Cadastro":"Cadastro Jogos e Campeonatos",
+>>>>>>> Stashed changes
     "/detalhes-jogo/1":"Detalhes",
     "/listaCampeonatos":"Campeonatos",
 

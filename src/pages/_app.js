@@ -10,7 +10,8 @@ import '../css/feed.css'
 import '../css/detalhes-jogos.css'
 //components
 import '../css/header.css'; // importa o CSS do home (global ou module)
-import '../css/menuInferior.css'
+import '../css/menuInferior.css';
+import '../css/clima.css';
 
 export default function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;

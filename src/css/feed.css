@@ -1,31 +1,51 @@
+
+:root {
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --space-4: 20px;
+  --radius: 12px;
+}
+
+body { margin: 0; }
+
+/* Container do feed */
 .feed-container {
-  max-width: 800px;
+  max-width: 960px;             /* cresce um pouco no desktop */
+  margin: 0 auto;               /* centraliza */
+  padding: var(--space-3);      /* respiro nas bordas no mobile */
   font-family: Arial, sans-serif;
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);          /* Espaço entre cards/form */
 }
 
 /* Título */
 .feed-title {
+  width: 100%;
   text-align: center;
   color: #6c2eb9;
-  margin-bottom: 20px;
+  margin: 0 0 var(--space-3);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
 }
 
 /* Form de postar rápido */
 .post-form {
   background: #fff;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
-  margin-bottom: 20px;
+  padding: var(--space-3);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
+  width: 100%;                  /* full no mobile */
+  max-width: 720px;             /* limita no desktop */
 }
 
 .post-form textarea {
-  resize: none;
+  width: 100%;
+  min-height: 96px;
+  resize: vertical;             /* permite expandir se precisar */
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 10px;
@@ -35,55 +55,45 @@
 .btn-post {
   align-self: flex-end;
   background: var(--roxo);
-  color: white;
+  color: #fff;
   border: none;
-  padding: 8px 14px;
+  padding: 10px 16px;
   border-radius: 8px;
   cursor: pointer;
 }
-
-.btn-post:hover {
-  background: var(--roxo-forte);
-}
+.btn-post:hover { background: var(--roxo-forte); }
 
 /* Card do post */
 .post-card {
   background: #fff;
-  border-radius: 12px;
-  padding: 15px;
-  margin-bottom: 20px;
-  margin-top: 10px;
-  border: 1px solid black;
-  padding: 10px;
-  width: 90%;
-  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+  border-radius: var(--radius);
+  border: 1px solid #000;
+  padding: 12px;
+  width: 100%;                  /* 1 coluna no mobile */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .post-header {
   display: flex;
   align-items: center;
+  gap: 10px;
   margin-bottom: 10px;
 }
 
 .avatar {
-  width: 40px;
-  height: 40px;
+  width: 40px; height: 40px;
   border-radius: 50%;
-  margin-right: 10px;
+  flex: 0 0 40px;
 }
 
-.username {
-  font-weight: bold;
-  color: #333;
-}
+.username { font-weight: bold; color: #333; }
 
-.post-text {
-  margin-bottom: 10px;
-  color: #444;
-}
+.post-text { margin-bottom: 10px; color: #444; line-height: 1.45; }
 
 .post-img {
+  display: block;
   width: 100%;
+  height: auto;                 /* evita distorção */
   border-radius: 10px;
   margin-bottom: 10px;
 }
@@ -98,40 +108,32 @@
   background: none;
   border: none;
   cursor: pointer;
+  padding: 6px 8px;             /* aumenta área de toque */
 }
 
 .icon-coracao {
-  width: 22px;
-  height: 22px;
+  width: 22px; height: 22px;
   transition: transform 0.2s;
 }
+.btn-action:hover .icon-coracao { transform: scale(1.2); }
 
-.btn-action:hover .icon-coracao {
-  transform: scale(1.2);
-}
-
-/* Botão flutuante */
+/* Botão flutuante (FAB) */
 .fab {
   position: fixed;
-  bottom: 70px;
-  right: 20px;
+  right: 16px;
+  bottom: 16px;                 /* mais seguro no mobile */
+  z-index: 150;                 /* abaixo da topbar (200) e acima do conteúdo */
   background: var(--rosa-claro);
-  color: white;
+  color: #fff;
   border: none;
   border-radius: 50%;
-  width: 56px;
-  height: 56px;
+  width: 56px; height: 56px;
   font-size: 22px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0px 3px 8px rgba(0,0,0,0.2);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
   cursor: pointer;
 }
-
-.fab:hover {
-  background: #541f8a;
-}
+.fab:hover { background: #541f8a; }
 
 /* Modal */
 .modal-overlay {
@@ -141,39 +143,41 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: var(--space-3);      /* evita colar nas bordas no mobile */
+  z-index: 300;                 /* acima de tudo */
 }
 
 .modal-content {
   background: #fff;
-  border-radius: 12px;
+  border-radius: var(--radius);
   padding: 20px;
-  width: 90%;
-  max-width: 400px;
-  box-shadow: 0px 2px 10px rgba(0,0,0,0.3);
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
 .modal-content h2 {
-  margin-bottom: 10px;
+  margin: 0 0 10px;
   color: #6c2eb9;
 }
 
 .modal-content textarea {
   width: 100%;
-  resize: none;
+  min-height: 120px;
+  resize: vertical;
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 10px;
   margin-bottom: 10px;
 }
 
-.modal-content input[type="file"] {
-  margin-bottom: 15px;
-}
+.modal-content input[type="file"] { margin-bottom: 15px; }
 
 .modal-actions {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
+  flex-wrap: wrap;              /* quebra em telas pequenas */
 }
 
 .btn-cancel {
@@ -183,12 +187,82 @@
   border-radius: 8px;
   cursor: pointer;
 }
+.btn-cancel:hover { background: #aaa; }
 
-.btn-cancel:hover {
-  background: #aaa;
-}
+/* Rodapé do feed */
 .feed-rodape{
-        width: 100%;
+  width: 100%;
+  min-height: 30vh;
+}
 
-    height: 50vh;
+/* ===== Breakpoints ===== */
+
+/* ≥ 600px: melhora tipografia e espaçamentos */
+@media (min-width: 600px) {
+  .post-form { padding: 18px; }
+  .post-card { padding: 14px; }
+}
+
+/* ≥ 768px: 2 colunas para cards */
+@media (min-width: 768px) {
+  .post-card {
+    width: calc(50% - var(--space-3));  /* 2 colunas */
+  }
+}
+
+/* ≥ 1024px: 3 colunas se quiser densidade maior */
+@media (min-width: 1024px) {
+  .feed-container { max-width: 1100px; }
+  .post-card { width: calc(33.333% - var(--space-3)); }
+  .post-form { max-width: 100%; }       /* form continua full width no topo */
+}
+
+/* Telas muito pequenas (≤ 360px): botões full e fontes suaves */
+@media (max-width: 360px) {
+  .btn-post,
+  .btn-action { width: 100%; }
+  .post-actions { justify-content: space-between; }
+}
+
+/* ========= ADIÇÕES PARA TOPBAR FIXA E LARGURA ALINHADA ========= */
+:root{
+  --page-max: 960px;        /* mesmo max-width do feed-container */
+  --topbar-h-sm: 56px;      /* altura mobile */
+  --topbar-h-lg: 64px;      /* altura tablet/desktop */
+  --bottomnav-h: 64px;      /* ajuste conforme a altura do MenuInferior */
+}
+
+/* Barra fixa no topo */
+.feed-topbar{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  background: #6c2eb9;
+  color: #fff;
+  border-bottom: 1px solid #5a2a8e;
+}
+
+/* Conteúdo interno com a mesma largura do feed */
+.feed-topbar__inner{
+  height: var(--topbar-h-sm);
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+@media (min-width: 768px){
+  .feed-topbar__inner{ height: var(--topbar-h-lg); }
+}
+
+/* Compensa a altura da topbar e (opcional) do menu inferior fixo */
+.page-main{
+  padding-top: var(--topbar-h-sm);
+  padding-bottom: var(--bottomnav-h);   /* retire se o MenuInferior não for fixo */
+}
+@media (min-width: 768px){
+  .page-main{ padding-top: var(--topbar-h-lg); }
 }

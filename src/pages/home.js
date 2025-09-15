@@ -2,7 +2,7 @@ import CardJogo from "../pages/components/CardJogo";
 import UltimoResultado from "../pages/components/UltimoResultado";
 import MenuInferior from "../pages/components/MenuInferior";
 import Header from "../pages/components/Header";
-
+import Clima from "../pages/components/Clima";
 
 export default function HomePage() {
   const jogos = [
@@ -34,7 +34,9 @@ export default function HomePage() {
         ))}
 
       </section>
-
+<section className="section-clima">
+      <Clima />
+</section>
       <h2 className="text-xl font-bold mb-2 home-titulo-2">Radar seleção</h2>
 
       <section className="home-mb-6 home-section home-section-ultimo-resultado">
