@@ -1,3 +1,4 @@
+//[id].js
 import { useRouter } from "next/router";
 import MenuInferior from "../components/MenuInferior";
 import Header from "../components/Header";

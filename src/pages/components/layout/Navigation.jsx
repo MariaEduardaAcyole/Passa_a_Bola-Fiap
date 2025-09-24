@@ -1,3 +1,4 @@
+// Navigation.jsx
 import React from 'react';
 import { Plus, Trophy, Home } from 'lucide-react';
 

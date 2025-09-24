@@ -1,3 +1,4 @@
+// CampeonatosList
 import React, { useState, useEffect, useMemo } from 'react';
 import { Search, Filter, Trophy, Calendar } from 'lucide-react';
 import CampeonatoCard from './CampeonatoCard';

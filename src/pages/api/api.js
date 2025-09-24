@@ -1,3 +1,4 @@
+// api.js
 const API_KEY = process.env.NEXT_PUBLIC_OPENWEATHER_KEY;
 const cidade = "São Paulo,BR";
 const res = await fetch(

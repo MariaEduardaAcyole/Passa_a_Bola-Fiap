@@ -1,3 +1,4 @@
+//CardJogo.js
 import Image from "next/image";
 
 export default function CardJogo({ dia, mesAno, diaSemana, local, img }) {

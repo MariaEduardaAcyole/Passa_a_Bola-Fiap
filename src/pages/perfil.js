@@ -1,3 +1,4 @@
+//perfil.js
 import MenuInferior from "../pages/components/MenuInferior";
 import Header from "../pages/components/Header";
 

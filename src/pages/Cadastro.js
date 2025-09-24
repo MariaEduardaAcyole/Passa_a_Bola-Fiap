@@ -1,3 +1,4 @@
+//Cadastro.js
 import React, { useState } from 'react';
 import Head from 'next/head';
 import Navigation from './components/layout/Navigation.jsx';

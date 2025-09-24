@@ -1,3 +1,4 @@
+//listaJogosEditar.js
 import MenuInferior from "./components/MenuInferior";
 import Header from "./components/Header";
 import ItemListaJogos from "./components/ItemListaJogos";

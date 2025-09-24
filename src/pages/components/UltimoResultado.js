@@ -1,3 +1,4 @@
+//UltimoResultado.js
 import Image from "next/image";
 
 export default function UltimoResultado({ dia, mesAno, diaSemana, local }) {

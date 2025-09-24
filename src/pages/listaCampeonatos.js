@@ -1,3 +1,4 @@
+//listaCampeonatos.js
 import MenuInferior from "./components/MenuInferior";
 import Header from "./components/Header";
 import ItemCampeonato from "./components/ItemCampeonato";

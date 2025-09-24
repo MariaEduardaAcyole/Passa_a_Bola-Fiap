@@ -1,3 +1,4 @@
+// CampeonatoCard
 import React from 'react';
 import { Calendar, MapPin, Users, Trophy, Clock } from 'lucide-react';
 import MenuInferior from '../MenuInferior';

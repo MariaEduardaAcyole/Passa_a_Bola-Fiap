@@ -1,3 +1,4 @@
+//feed.js
 import { useState, useEffect } from "react";
 import { supabase } from "../../lib/supabaseClient";
 import Header from "../pages/components/Header";

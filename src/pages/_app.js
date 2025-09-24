@@ -1,5 +1,4 @@
-// src/pages/_app.js
-//telas
+//_app.js
 import '../../globals.css'; // importa o CSS global
 import '../css/login.css'; // importa o CSS do login (global ou module)
 import '../css/home.css';

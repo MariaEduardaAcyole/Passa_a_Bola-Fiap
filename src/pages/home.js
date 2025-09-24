@@ -1,3 +1,4 @@
+//home.js
 import CardJogo from "../pages/components/CardJogo";
 import UltimoResultado from "../pages/components/UltimoResultado";
 import MenuInferior from "../pages/components/MenuInferior";
