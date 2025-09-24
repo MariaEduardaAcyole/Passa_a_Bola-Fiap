@@ -33,7 +33,7 @@ export default function HomePage() {
         {jogos.map((jogo, index) => (
           <CardJogo {...jogo} />
         ))}
-
+        
       </section>
 <section className="section-clima">
       <Clima />

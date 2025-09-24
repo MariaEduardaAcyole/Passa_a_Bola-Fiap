@@ -16,3 +16,9 @@
 footer{
     height: 18rem;
 }
+
+@media (min-width:780px) {
+  .MenuInferior-nav-inferior{
+    display: none;
+  }
+}

@@ -3,6 +3,57 @@ import MenuInferior from "../pages/components/MenuInferior";
 import Header from "../pages/components/Header";
 
 export default function HomePage() {
+  const router = useRouter();
+
+  // Estados dos inputs
+  const [nome, setNome] = useState("Gabriela");
+  const [email, setEmail] = useState("gabigol@gmail.com");
+  const [apelidoJogo, setApelidoJogo] = useState("Gabi10");
+ 
+  const [dataNascimento, setDataNascimento] = useState("05/08/2006");
+  const [cidade, setCidade] = useState("São paulo");
+  const [posicao, setPosicao] = useState("Meia");
+  const [pernaDominante, setPernaDominante] = useState("Esquerda");
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  // Função para salvar dados
+  const handleSalvar = async (e) => {
+    e.preventDefault();
+    setError(null);
+    setLoading(true);
+
+    try {
+      console.log({
+        nome,
+        email,
+        apelidoJogo,
+        dataNascimento,
+        cidade,
+        posicao,
+        pernaDominante,
+      });
+
+      alert("Dados salvos com sucesso!");
+    } catch (err) {
+      console.error(err);
+      setError("Não foi possível salvar os dados. Tente novamente.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Função para logout
+  const handleLogout = async () => {
+    try {
+      await supabase.auth.signOut();
+      router.push("/login");
+    } catch (err) {
+      console.error(err);
+      alert("Erro ao sair. Tente novamente.");
+    }
+  };
+
   return (
     <div className="perfil-corpo">
       {/* Header */}
@@ -33,16 +84,21 @@ export default function HomePage() {
         <h2 className="perfil-titulo-2">Informações Pessoais</h2>
       </div>
 
-      <form className="perfil-form">
-        <input type="text" placeholder="Nome completo" />
-        <input type="email" placeholder="Email" />
-        <input type="text" placeholder="Apelido no jogo" />
-        <input type="text" placeholder="CPF" />
-        <input type="text" placeholder="Apelido" />
-        <input type="date" placeholder="Data de Nascimento" />
-        <input type="text" placeholder="Cidade" />
-        <input type="text" placeholder="Posição em Campo" />
-        <input type="text" placeholder="Perna Dominante" />
+      <form className="perfil-form" onSubmit={handleSalvar}>
+        <input type="text" placeholder="Nome completo" value={nome} onChange={e => setNome(e.target.value)} required />
+        <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} required />
+        <input type="text" placeholder="Apelido no jogo" value={apelidoJogo} onChange={e => setApelidoJogo(e.target.value)} />
+
+        <input type="date" placeholder="Data de Nascimento" value={dataNascimento} onChange={e => setDataNascimento(e.target.value)} />
+        <input type="text" placeholder="Cidade" value={cidade} onChange={e => setCidade(e.target.value)} />
+        <input type="text" placeholder="Posição em Campo" value={posicao} onChange={e => setPosicao(e.target.value)} />
+        <input type="text" placeholder="Perna Dominante" value={pernaDominante} onChange={e => setPernaDominante(e.target.value)} />
+
+        {error && <p style={{ color: "red", marginTop: "10px" }}>{error}</p>}
+
+        <button type="submit" className="btn" disabled={loading}>
+          {loading ? "Salvando..." : "Salvar"}
+        </button>
       </form>
 
       {/* Seus Jogos */}

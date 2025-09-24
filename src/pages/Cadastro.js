@@ -1,30 +1,33 @@
-//Cadastro.js
-import React, { useState } from 'react';
-import Head from 'next/head';
-import Navigation from './components/layout/Navigation.jsx';
-import CampeonatosList from './components/campeonatos/CampeonatosList.jsx';
-import GameForm from './components/forms/GameForm.jsx';
-import Header from './components/Header.js';
-export default function Home() {
-  const [activeTab, setActiveTab] = useState('campeonatos');
+import React, { useState } from "react";
+import Head from "next/head";
+import Header from "./components/Header.js";
+import Navigation from "./components/cadastro/Navigation.jsx";
+import CampeonatosList from "./components/cadastro/CampeonatosList.jsx";
+import JogosList from "./components/cadastro/JogosList.jsx";
+import FormJogo from "./components/cadastro/FormJogo.jsx";
+import FormCampeonato from "./components/cadastro/FormCampeonato.jsx";
+
+export default function Cadastro() {
+  const [activeTab, setActiveTab] = useState("listar-campeonatos");
 
   return (
     <>
-    <Header/>
       <Head>
-        <title>Passa a Bola - Cadastro de Jogos</title>
-        <meta name="description" content="Plataforma para cadastro de jogos e visualização de campeonatos" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <title>Passa a Bola - Cadastro</title>
       </Head>
 
-      <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50">
-        <div className="container mx-auto px-4 py-8 max-w-4xl">
-          <Navigation activeTab={activeTab} setActiveTab={setActiveTab} />
-          
+      <div className="min-h-screen bg-gradient-to-br from-roxo-600 via--roxo-800 to--roxo text-white cadastro">
+        <Header />
+        <div className="container mx-auto px-4 py-10 max-w-5xl">
+          <div className="bg-white text-gray-900 rounded-2xl shadow-xl p-6">
+            <Navigation activeTab={activeTab} setActiveTab={setActiveTab} />
+          </div>
+
           <div className="mt-8">
-            {activeTab === 'campeonatos' && <CampeonatosList />}
-            {activeTab === 'cadastrar' && <GameForm />}
+            {activeTab === "listar-campeonatos" && <CampeonatosList />}
+            {activeTab === "listar-jogos" && <JogosList />}
+            {activeTab === "cadastrar-campeonato" && <FormCampeonato />}
+            {activeTab === "cadastrar-jogo" && <FormJogo />}
           </div>
         </div>
       </div>

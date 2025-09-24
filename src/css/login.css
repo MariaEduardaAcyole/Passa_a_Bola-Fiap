@@ -1,11 +1,11 @@
-/* login.css */
-.container {
+.login-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 12px;
   text-align: center;
   overflow: auto;
+  margin: 4%;
 }
 
 .titulo {
@@ -27,6 +27,10 @@
   height: 100%;
   border-left: 3px solid rgb(114, 74, 112);
   color: var(--roxo);
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
 }
 
 .label {
@@ -80,7 +84,7 @@ input{
   height: 20px;
 }
 
-.btn {
+.login-btn {
   background-color: var(--fundo);
   box-shadow: 3px 3px 8px var(--roxo);
   text-decoration: none;
@@ -98,10 +102,15 @@ input{
   -ms-transition: box-shadow 0.3s ease;
   -o-transition: box-shadow 0.3s ease;
 }
+.login-btn:hover{
+background-color: var(--roxo);
+color: white;
+}
 
 .esqueceuSenha {
   margin-top: 200px;
 }
+
 
 .btnGoogle {
   width: 100%;
@@ -111,6 +120,7 @@ input{
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-top: 5%;
   justify-content: center;
 }
 

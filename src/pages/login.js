@@ -44,7 +44,7 @@ export default function LoginPage() {
 
 
   return (
-    <div className="container">
+    <div className="login-container">
       <h1 className="titulo">PASSA A BOLA</h1>
       <p className="subtitulo">Faça seu login</p>
 
@@ -80,7 +80,9 @@ export default function LoginPage() {
         </button>
         <br />
 
-                <button type="submit" className="btn">Entrar</button>
+        <button type="submit" className="login-btn" disabled={loading}>
+          {loading ? "Entrando..." : "Entrar"}
+        </button>
 
         <br />
         <br />
@@ -91,7 +93,10 @@ export default function LoginPage() {
         <br />
 
         <br />
-        <button type="submit" className="btn">Cadastre-se</button>
+
+        <button type="button" className="login-btn" disabled={loading}>
+          Cadastre-se
+        </button>
       </form>
     </div>
   );

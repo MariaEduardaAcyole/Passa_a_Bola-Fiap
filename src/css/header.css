@@ -1,14 +1,113 @@
-/* header.css */
-.Header-header{
-    width: 100%;
-    height: 100%;
+.Header-header {
+  width: 100%;
+  height: 70px;
+  background-color: var(--roxo);
 
-    background-color: var(--roxo);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2%;
+  /* GRID */
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  align-items: center;
+  padding: 0 20px;
 }
-.Header-titulo-header{
-    color: white;
+
+/* título alinhado à esquerda */
+.Header-titulo-header {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  grid-column: 2/3;
+  display: grid;
+  justify-items: center;
+}
+
+/* botão hambúrguer */
+.menu-hamburguer {
+  display: none; /* só aparece no desktop */
+}
+
+.menu-icon {
+  font-size: 28px;
+  cursor: pointer;
+  padding: 8px;
+  color: white;
+  display: block;
+  grid-column: 3/4;
+}
+
+/* links do menu (dropdown) */
+.menu-links {
+  display: none;
+  list-style: none;
+  background: var(--roxo);
+  position: absolute;
+  top: 70px;
+  /*logoabaixodoheader*/right: 20px;
+  padding: 12px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+
+}
+
+.menu-links li {
+  margin: 10px 0;
+ 
+}
+.header-icon{
+    width: 20px;
+}
+.menu-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+   display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  gap: 10px;
+    transition: background-color 0.2s ease;
+
+}
+
+/* Mostrar os links quando o checkbox estiver marcado */
+#menu-toggle:checked ~ .menu-links {
+  display: block;
+}
+
+/* Mobile → mostra menu inferior */
+@media (max-width: 768px) {
+  .menu-hamburguer {
+    display: none;
+  }
+  .menu-inferior {
+    display: flex;
+  }
+}
+
+/* 💻 Desktop → mostra hambúrguer */
+@media (min-width: 769px) {
+  .menu-hamburguer {
+    display: block;
+    grid-column: 3; /* fica no final da grid */
+    justify-self: end;
+  }
+  #menu-toggle {
+    display: none;
+  }
+  .menu-inferior {
+    display: none;
+  }
+}
+/* Efeito de hover */
+.menu-links a:hover,
+.menu-links a:focus {
+  background-color: #76c52db9;
+  border-radius: 10px;
+  padding:5px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }

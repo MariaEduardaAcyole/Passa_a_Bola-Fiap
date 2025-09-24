@@ -1,0 +1,18 @@
+ADM
+1. Login
+2. Home
+3. cadastro
+4. detalhes
+5.feed
+
+Atleta
+1. Login
+2. Home
+3. Jogos
+4. Detalhes
+5. Campeonatos
+6. Detalhes campeonato
+7. Perfil
+8. ver feed
+9. postar no feed
+
