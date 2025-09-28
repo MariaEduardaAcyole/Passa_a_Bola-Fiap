@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { supabase } from "../../../../lib/supabaseClient";
 
 export default function FormJogo() {
@@ -14,11 +14,23 @@ export default function FormJogo() {
     status: "Agendado",
   });
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const [campos, setCampos] = useState([]);
+
+  // Puxa os campos do banco
+  useEffect(() => {
+    async function fetchCampos() {
+      const { data, error } = await supabase.from("campos").select("*");
+      if (error) console.error("Erro ao buscar campos:", error);
+      else setCampos(data);
+    }
+    fetchCampos();
+  }, []);
+
+  const handleChange = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Combina data e hora em ISO antes de enviar
     const dataHora = new Date(`${form.data_jogo}T${form.hora_jogo}`);
     const novoJogo = { ...form, data_jogo: dataHora.toISOString() };
     delete novoJogo.hora_jogo;
@@ -43,13 +55,8 @@ export default function FormJogo() {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="space-y-6 bg-white p-6 rounded-2xl shadow-md max-w-2xl mx-auto"
-    >
-      <h2 className="text-2xl font-bold mb-4" style={{ color: "var(--roxo)" }}>
-        Cadastrar Jogo
-      </h2>
+    <form onSubmit={handleSubmit} className="form-jogo">
+      <h2 className="form-titulo">Cadastrar Jogo</h2>
 
       <input
         type="text"
@@ -57,19 +64,17 @@ export default function FormJogo() {
         value={form.nome_jogo}
         onChange={handleChange}
         placeholder="Nome do jogo"
-        className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none"
-        style={{ color: "var(--roxo)", placeholderColor: "var(--roxo)" }}
+        className="form-input"
         required
       />
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="form-grid">
         <input
           type="date"
           name="data_jogo"
           value={form.data_jogo}
           onChange={handleChange}
-          className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none"
-          style={{ color: "var(--roxo)" }}
+          className="form-input"
           required
         />
         <input
@@ -77,21 +82,25 @@ export default function FormJogo() {
           name="hora_jogo"
           value={form.hora_jogo}
           onChange={handleChange}
-          className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none"
-          style={{ color: "var(--roxo)" }}
+          className="form-input"
           required
         />
       </div>
 
-      <input
-        type="text"
+      {/* Select para escolher o local (campo) */}
+      <select
         name="local"
         value={form.local}
         onChange={handleChange}
-        placeholder="Local"
-        className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none"
-        style={{ color: "var(--roxo)" }}
-      />
+        className="form-input"
+        required
+      >
+        <option value="">Selecione o campo</option>
+        {campos.map((campo) => (
+        <option key={campo.id} value={campo.id}>{campo.nome}</option>
+
+        ))}
+      </select>
 
       <input
         type="text"
@@ -99,19 +108,17 @@ export default function FormJogo() {
         value={form.tipo_jogo}
         onChange={handleChange}
         placeholder="Tipo de jogo"
-        className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none"
-        style={{ color: "var(--roxo)" }}
+        className="form-input"
       />
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="form-grid">
         <input
           type="number"
           name="quantidade_jogadoras"
           value={form.quantidade_jogadoras}
           onChange={handleChange}
           placeholder="Quantidade de jogadoras"
-          className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none"
-          style={{ color: "var(--roxo)" }}
+          className="form-input"
         />
         <input
           type="number"
@@ -119,8 +126,7 @@ export default function FormJogo() {
           value={form.valor}
           onChange={handleChange}
           placeholder="Valor"
-          className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none"
-          style={{ color: "var(--roxo)" }}
+          className="form-input"
         />
       </div>
 
@@ -129,16 +135,11 @@ export default function FormJogo() {
         value={form.observacoes}
         onChange={handleChange}
         placeholder="Observações: traga sua água"
-        className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none"
+        className="form-input"
         rows={4}
-        style={{ color: "var(--roxo)" }}
       />
 
-      <button
-        type="submit"
-        className="w-full text-white px-4 py-2 rounded-lg transition-colors font-semibold"
-        style={{ backgroundColor: "var(--roxo)" }}
-      >
+      <button type="submit" className="form-botao">
         Cadastrar Jogo
       </button>
     </form>

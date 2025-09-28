@@ -12,24 +12,16 @@ export default function JogosList() {
   const fetchJogos = async () => {
     const { data, error } = await supabase
       .from("jogos")
-      .select("*")
+      .select(
+        `
+    *,
+    campos:local (nome, foto_url)
+  `
+      )
       .order("data_jogo", { ascending: true });
 
     if (error) console.error("Erro ao buscar jogos:", error);
     else setJogos(data);
-  };
-
-  const getStatusColor = (status) => {
-    switch (status) {
-      case "Agendado":
-        return "bg-blue-100 text-blue-800";
-      case "Concluído":
-        return "bg-green-100 text-green-800";
-      case "Cancelado":
-        return "bg-red-100 text-red-800";
-      default:
-        return "bg-gray-100 text-gray-800";
-    }
   };
 
   const formatDate = (dateString) => {
@@ -42,55 +34,55 @@ export default function JogosList() {
     });
   };
 
+  const formatHour = (dateString) => {
+    if (!dateString) return "-";
+    const date = new Date(dateString);
+    return date.toLocaleTimeString("pt-BR", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  };
+
   return (
     <div>
-      <h2 className="text-xl font-bold mb-4">Jogos Cadastrados</h2>
+      <h2 className="titulo-lista">Jogos Cadastrados</h2>
       {jogos.length === 0 ? (
         <p>Nenhum jogo cadastrado.</p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="jogos-grid">
           {jogos.map((j) => (
-            <div
-              key={j.id_jogo}
-              className="bg-white p-5 rounded-xl shadow hover:shadow-lg transition-shadow flex flex-col justify-between"
-            >
-              {/* Nome do jogo em destaque com cor roxa */}
-              <h3 className="text-lg font-bold mb-4" style={{ color: "var(--roxo)" }}>
-                {j.nome_jogo}
-              </h3>
+            <div key={j.id_jogo} className="jogo-card">
+              <h3 className="jogo-nome">{j.nome_jogo}</h3>
 
-              {/* Informações com ícones */}
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 text-gray-700">
-                  <Calendar className="w-5 h-5" />
-                  <span>{formatDate(j.data_jogo)}</span>
-                </div>
-                     <div className="flex items-center gap-2 text-gray-700">
-                  <Clock className="w-5 h-5" />
-                  <span>{(j.hora)}</span>
-                </div>
-                <div className="flex items-center gap-2 text-gray-700">
-                  <MapPin className="w-5 h-5" />
-                  <span>{j.local}</span>
-                </div>
-                <div className="flex items-center gap-2 text-gray-700">
-                  <Users className="w-5 h-5" />
-                  <span>{j.quantidade_jogadoras} jogadoras</span>
-                </div>
-                <div className="flex items-center gap-2 text-gray-700">
-                  <DollarSign className="w-5 h-5" />
-                  <span>R$ {j.valor}</span>
-                </div>
+              <div className="jogo-info">
+                <img
+                  src={j.campos?.foto_url}
+                  alt={j.campos?.nome || "Campo"}
+                  width={200}
+                />
+
+                <p>
+                  <Calendar size={18} /> {formatDate(j.data_jogo)}
+                </p>
+                <p>
+                  <Clock size={18} /> {formatHour(j.data_jogo)}
+                </p>
+                <p>
+                  <MapPin size={18} /> 
+                                  {j.campos?.nome || "Sem campo"}
+
+                </p>
+                <p>
+                  <Users size={18} /> {j.quantidade_jogadoras} jogadoras
+                </p>
+                <p>
+                  <DollarSign size={18} /> R$ {j.valor}
+                </p>
               </div>
 
-              {/* Status */}
-              <div
-                className={`mt-4 px-3 py-1 rounded-full text-sm font-medium w-max ${getStatusColor(
-                  j.status
-                )}`}
-              >
+              <span className={`status status-${j.status.toLowerCase()}`}>
                 {j.status}
-              </div>
+              </span>
             </div>
           ))}
         </div>

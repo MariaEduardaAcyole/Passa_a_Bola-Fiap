@@ -1,0 +1,58 @@
+.form-jogo {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-titulo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: var(--roxo);
+}
+
+.form-input {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  color: var(--cinza);
+}
+
+.form-input::placeholder {
+  color: var(--cinza);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--roxo);
+  box-shadow: 0 0 0 2px rgba(123, 63, 228, 0.3);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-botao {
+  background: var(--roxo);
+  color: #fff;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.form-botao:hover {
+  background: #6a32c9;
+}

@@ -5,7 +5,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
 }
 
 .listaCampeonatos-subtitulo {
@@ -96,4 +95,97 @@
   align-items: center;
   justify-content: center;
   grid-column: 1/2;
+}
+.titulo-lista {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: var(--cinza); /* cinza escuro */
+}
+
+.lista-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+@media (min-width: 640px) {
+  .lista-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .lista-cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card-campeonato {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: box-shadow 0.3s ease;
+  
+}
+/* CampeonatosList.css ou global.css */
+.card-campeonato img {
+  width: 95%;       
+  height: 30vh;      
+  object-fit: cover;  /* mantém proporção e corta o excesso */
+  border-radius: 8px;
+  display: block;    
+  margin-bottom: 10px; 
+}
+
+.card-campeonato:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.card-titulo {
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: var(--roxo);
+}
+
+.card-info {
+  font-size: 0.9rem;
+  color: #374151;
+}
+.card-info p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.3rem 0;
+}
+
+/* Status */
+.status {
+  margin-top: 1rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  width: fit-content;
+}
+.status-aberto {
+  background: #dbeafe;
+  color: #1e40af;
+}
+.status-andamento {
+  background: #d1fae5;
+  color: var(--verde);
+}
+.status-encerrado {
+  background: #f3f4f6;
+  color: var(--rosa);
+}
+.status-default {
+  background: #f9fafb;
+  color: #6b7280;
+}
+
+/* Ícones */
+.icon-roxo {
+  color: var(--roxo, #7b3fe4);
 }

@@ -43,7 +43,7 @@ export default function Feed() {
 
     const { error } = await supabase.from("posts").insert([
       {
-        usuario: user?.email || "Anônimo",
+        usuario: user?.nome || "Anônimo",
         avatar: "/img/avatar-saopaulo.png",
         texto: newPost,
         imagem: null,
@@ -71,10 +71,8 @@ export default function Feed() {
 
   return (
     <>
-      {/* ===== Topbar fixa no topo ===== */}
       <Header />
 
-      {/* ===== Conteúdo: compensa a altura da topbar e do menu inferior ===== */}
       <main className="page-main">
         <section className="feed-container">
           {posts.map(post => (
@@ -127,7 +125,6 @@ export default function Feed() {
         <footer className="feed-rodape"></footer>
       </main>
 
-      {/* Se o MenuInferior for fixo, o CSS abaixo já reserva espaço */}
       <MenuInferior />
     </>
   );

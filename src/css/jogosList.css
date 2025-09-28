@@ -1,0 +1,77 @@
+.titulo-lista {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.jogos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.jogo-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: box-shadow 0.3s ease;
+}
+
+.jogo-card img {
+  width: 95%;       
+  height: 30vh;      
+  object-fit: cover;  /* mantém proporção e corta o excesso */
+  border-radius: 8px;
+  display: block;    
+  margin-bottom: 10px; 
+}
+
+.jogo-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.jogo-nome {
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: var(--roxo); /* usa sua paleta */
+}
+
+.jogo-info p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #555;
+  font-size: 0.9rem;
+  margin: 4px 0;
+}
+
+.status {
+  margin-top: 16px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  width: fit-content;
+}
+
+/* Status variantes */
+.status-agendado {
+  background: #e0f2fe;
+  color: var(--roxo);
+}
+
+.status-concluído {
+  background: #dcfce7;
+  color: var(--verde);
+}
+
+.status-cancelado {
+  background: #fee2e2;
+  color: var(rosa);
+}

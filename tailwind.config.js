@@ -1,27 +1,28 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
+    "./cadastro/**/*.{js,ts,jsx,tsx}",
+
   ],
   theme: {
-<<<<<<< Updated upstream
-    extend: {},
-=======
     extend: {
       colors: {
-        // Cores do seu projeto
-        roxo: "rgb(114, 74, 112)",
-        roxoForte: "#7D0D8B",
-        fundoBege: "#F8EBE3",
-        rosaClaro: "#F7DFD9",
-        cinza: "#8D6E6E",
-        rosa: "rgb(237, 40, 67)",
-        verde: "#76C52D",
-        branco: "#ffffff",
-        preto: "#000000",
-        sombra: "rgba(0, 0, 0, 0.1)",
+        // Cores do projeto
+        "roxo": "rgb(114, 74, 112)",
+        "roxo-forte": "#7D0D8B",
+        "fundo-bege": "#F8EBE3",
+        "rosa-claro": "#F7DFD9",
+        "cinza": "#8D6E6E",
+        "rosa": "rgb(237, 40, 67)",
+        "verde": "#76C52D",
+        "branco": "#ffffff",
+        "preto": "#000000",
+        "sombra": "rgba(0, 0, 0, 0.1)",
 
-        // Cores do template Tailwind/Theme
+        // Cores do template (mantidas)
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -57,9 +58,9 @@ module.exports = {
         },
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        lg: "8px", // valor fixo para não depender de variável
+        md: "6px",
+        sm: "4px",
       },
       keyframes: {
         "accordion-down": {
@@ -76,7 +77,6 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
->>>>>>> Stashed changes
   },
   plugins: [],
-}
+};

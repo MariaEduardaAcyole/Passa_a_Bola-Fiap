@@ -16,10 +16,12 @@ export default function Cadastro() {
         <title>Passa a Bola - Cadastro</title>
       </Head>
 
-      <div className="min-h-screen bg-gradient-to-br from-roxo-600 via--roxo-800 to--roxo text-white cadastro">
+      <div
+        className="min-h-screen text-white cadastro"
+      >
         <Header />
         <div className="container mx-auto px-4 py-10 max-w-5xl">
-          <div className="bg-white text-gray-900 rounded-2xl shadow-xl p-6">
+          <div className="bg-white text-gray-900 rounded-2xl shadow-xl p-6 cadastro-nav">
             <Navigation activeTab={activeTab} setActiveTab={setActiveTab} />
           </div>
 
@@ -34,4 +36,3 @@ export default function Cadastro() {
     </>
   );
 }
-

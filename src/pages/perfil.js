@@ -1,8 +1,12 @@
 //perfil.js
+'use client'
 import MenuInferior from "../pages/components/MenuInferior";
 import Header from "../pages/components/Header";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 
-export default function HomePage() {
+
+export default function Perfil() {
   const router = useRouter();
 
   // Estados dos inputs

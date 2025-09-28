@@ -5,7 +5,7 @@ import MenuInferior from "../pages/components/MenuInferior";
 import Header from "../pages/components/Header";
 import Clima from "../pages/components/Clima";
 
-export default function HomePage() {
+export default function Home() {
   const jogos = [
     { dia: "09", mesAno: "Junho/2025", diaSemana: "Domingo", local: "Av das Nações Unidas", img: "/img/campo.svg" },
     { dia: "10", mesAno: "Junho/2025", diaSemana: "Segunda", local: "Av das Nações Unidas", img: "/img/campo.svg" },

@@ -1,4 +1,47 @@
-.cadastro-itens-menu{
-display: flex;
-justify-content: center;
+.cadastro-itens-menu {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.navigation-container {
+  display: flex;
+  gap: 12px;
+  border-bottom: 2px solid #e5e7eb; /* linha mais suave */
+  padding: 8px;
+  justify-content: center;
+  width: 60%;
+  background-color: #fafafa; /* leve fundo para destacar */
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* sombra leve */
+}
+
+.cadastro-nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151; /* cinza escuro */
+  background-color: #f3f4f6; /* leve contraste */
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.nav-button:hover {
+  background-color: #e5e7eb; /* hover suave */
+  transform: translateY(-2px); /* efeito de elevação */
+}
+
+.nav-button.active {
+  background-color: var(--roxo);
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* destaque do ativo */
 }

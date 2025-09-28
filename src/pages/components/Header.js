@@ -24,13 +24,13 @@ export default function Header() {
       <img width={36} height={36} src="/img/logopassabola - semtexto.png" />
       <h1 className="text-xl font-bold Header-titulo-header">{title}</h1>
 
-      <nav class="menu-hamburguer">
+      <nav className="menu-hamburguer">
         <input type="checkbox" id="menu-toggle" />
-        <label for="menu-toggle" class="menu-icon">
+        <label for="menu-toggle" className="menu-icon">
           ☰
         </label>
 
-        <ul class="menu-links">
+        <ul className="menu-links">
           <li>
             <a href="/home">
               <img src="/img/icon-home.png" className="header-icon"></img>
