@@ -1,4 +1,3 @@
-//login.js
 "use client";
 
 import { useState } from "react";
@@ -9,6 +8,8 @@ export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+
   const router = useRouter();
 
   const handleLogin = async (e) => {
@@ -20,20 +21,48 @@ export default function LoginPage() {
     }
 
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password: senha,
-      });
+      setLoading(true);
+      setError(null);
 
-      if (error) {
-        setError(error.message);
-      } else if (data.user) {
-        console.log("Usuário logado:", data.user);
-        router.push("/home"); // redireciona
+      // busca usuário na tabela 'usuarios' (sem Supabase Auth)
+      const { data: usuario, error: usuarioError } = await supabase
+        .from("usuarios")
+        .select("*")
+        .eq("email", email)
+        .eq("senha", senha) // em produção, use hash
+        .single();
+
+      if (usuarioError || !usuario) {
+        setError("Email ou senha incorretos");
+        return;
       }
+
+      // busca atleta vinculado (opcional)
+      const { data: atleta, error: atletaError } = await supabase
+        .from("atletas")
+        .select("*")
+        .eq("id_usuario", usuario.id_usuario)
+        .single();
+
+      if (atletaError && atletaError.code !== "PGRST116") {
+        // PGRST116 = não encontrado, pode ser normal se usuário não for atleta
+        console.error("Erro ao buscar atleta:", atletaError);
+      }
+
+      // salva usuário logado no localStorage
+      const usuarioLogado = {
+        id_usuario: usuario.id_usuario,
+        email: usuario.email,
+        atletaId: atleta?.id_atleta || null, // se não for atleta, será null
+      };
+      localStorage.setItem("usuarioLogado", JSON.stringify(usuarioLogado));
+
+      router.push("/home");
     } catch (err) {
-      setError("Erro ao conectar com Supabase");
-      console.error(err);
+      console.error("Erro ao conectar ao banco:", err);
+      setError("Erro ao conectar ao banco de dados");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -41,7 +70,6 @@ export default function LoginPage() {
     const senhaInput = document.querySelector(".senhaContainerInput");
     senhaInput.type = senhaInput.type === "password" ? "text" : "password";
   };
-
 
   return (
     <div className="login-container">
@@ -73,7 +101,6 @@ export default function LoginPage() {
 
         {error && <p style={{ color: "red" }}>{error}</p>}
 
-
         <button className="btnGoogle">
           <img src="/img/google 1.svg" />
           Entrar com o Google
@@ -87,8 +114,12 @@ export default function LoginPage() {
         <br />
         <br />
 
-        <p className="cadastroTexto">Ainda não tem uma conta?<br />
-          <a href="#" className="link-roxo">Vem jogar com a gente!</a>
+        <p className="cadastroTexto">
+          Ainda não tem uma conta?
+          <br />
+          <a href="#" className="link-roxo">
+            Vem jogar com a gente!
+          </a>
         </p>
         <br />
 

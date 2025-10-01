@@ -140,5 +140,6 @@ export default function FormCampeonato() {
         Cadastrar Campeonato
       </button>
     </form>
+     
   );
 }

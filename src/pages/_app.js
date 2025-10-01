@@ -19,6 +19,7 @@ import '../css/formCampeonato.css';
 
 import '../css/formJogo.css';
 import '../css/jogosList.css';
+import '../css/botaoInscrever.css';
 
 export default function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;

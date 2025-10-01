@@ -6,6 +6,7 @@ import CampeonatosList from "./components/cadastro/CampeonatosList.jsx";
 import JogosList from "./components/cadastro/JogosList.jsx";
 import FormJogo from "./components/cadastro/FormJogo.jsx";
 import FormCampeonato from "./components/cadastro/FormCampeonato.jsx";
+import MenuInferior from "./components/MenuInferior.js";
 
 export default function Cadastro() {
   const [activeTab, setActiveTab] = useState("listar-campeonatos");
@@ -33,6 +34,8 @@ export default function Cadastro() {
           </div>
         </div>
       </div>
+
+      <MenuInferior/>
     </>
   );
 }

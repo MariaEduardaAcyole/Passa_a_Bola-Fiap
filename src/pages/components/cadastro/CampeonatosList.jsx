@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { supabase } from "../../../../lib/supabaseClient";
 import { Calendar, MapPin, Users, Trophy } from "lucide-react";
+import MenuInferior from "../MenuInferior";
 
 export default function CampeonatosList() {
   const [campeonatos, setCampeonatos] = useState([]);

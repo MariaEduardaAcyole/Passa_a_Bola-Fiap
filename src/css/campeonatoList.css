@@ -52,7 +52,6 @@
 
 .listaCampeonatos-btn-participar {
     background: none;
-    /* remove cor de fundo */
     border: none;
     /* remove borda */
     outline: none;
@@ -188,4 +187,23 @@
 /* Ícones */
 .icon-roxo {
   color: var(--roxo, #7b3fe4);
+}
+
+@media (max-width:450px) {
+.card-campeonato img {
+  width: 75%;       
+  height: 15vh;      
+  object-fit: cover;  /* mantém proporção e corta o excesso */
+  border-radius: 8px;
+  display: block;    
+  margin-bottom: 10px; 
+}
+.card-campeonato{
+  margin: 5%;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+
+} 
+.lista-cards{
+  gap: 0px;
+}
 }

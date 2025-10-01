@@ -56,3 +56,13 @@
 .form-botao:hover {
   background: #6a32c9;
 }
+
+@media (max-width:450px) {
+   .form-campeonato{
+    margin-top: 2%;
+    margin: 5%;
+    box-shadow: 0 7px 20px rgba(0,0,0,0.1);
+
+  }
+ 
+}

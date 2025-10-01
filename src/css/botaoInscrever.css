@@ -1,0 +1,30 @@
+.btn-inscricao {
+  padding: 0.3rem 1rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  color: white;
+  margin-top: 2vh;
+  background-color: var(--roxo); /* roxo */
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-inscricao:hover:not(:disabled) {
+  background-color: var(--roxo-forte); /* roxo forte */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-inscricao:disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.btn-inscricao.inscrito {
+  background-color: var(--verde); /* verde */
+  color: white;
+  cursor: not-allowed;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
