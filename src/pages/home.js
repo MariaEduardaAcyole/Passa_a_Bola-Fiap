@@ -4,14 +4,21 @@ import UltimoResultado from "../pages/components/UltimoResultado";
 import MenuInferior from "../pages/components/MenuInferior";
 import Header from "../pages/components/Header";
 import Clima from "../pages/components/Clima";
+import { useRouter } from 'next/router';
 
 export default function Home() {
+  const router = useRouter();
+
   const jogos = [
     { dia: "09", mesAno: "Junho/2025", diaSemana: "Domingo", local: "Av das Nações Unidas", img: "/img/campo.svg" },
     { dia: "10", mesAno: "Junho/2025", diaSemana: "Segunda", local: "Av das Nações Unidas", img: "/img/campo.svg" },
     { dia: "11", mesAno: "Junho/2025", diaSemana: "Terça", local: "Av das Nações Unidas", img: "/img/campo.svg" },
     { dia: "12", mesAno: "Junho/2025", diaSemana: "Quarta", local: "Av das Nações Unidas", img: "/img/campo.svg" },
   ];
+
+  const handleFeedClick = () => {
+    router.push('/feed');
+  };
 
   return (
     <>
@@ -322,7 +329,13 @@ export default function Home() {
           margin-bottom: 10px;
         }
 
-        
+        .home-resultados-wrapper .resultado-nome {
+          font-size: 13px;
+          font-weight: 600;
+          color: #374151;
+          flex: 1;
+          text-align: left;
+        }
 
         .home-resultados-wrapper .resultado-nome-direita {
           text-align: right;
@@ -368,6 +381,19 @@ export default function Home() {
           margin-bottom: 24px;
           position: relative;
           overflow: hidden;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          border: none;
+          width: 100%;
+        }
+
+        .home-feed-cta:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 12px 40px rgba(124, 58, 237, 0.4);
+        }
+
+        .home-feed-cta:active {
+          transform: translateY(-2px);
         }
 
         .home-feed-cta::before {
@@ -512,7 +538,7 @@ export default function Home() {
           </div>
 
           {/* Feed CTA */}
-          <div className="home-feed-cta">
+          <button onClick={handleFeedClick} className="home-feed-cta">
             <div className="home-feed-title">
               <span>Acesse o Feed</span>
               <span>✨</span>
@@ -520,7 +546,7 @@ export default function Home() {
             <div className="home-feed-badge">
               20 Novos Posts
             </div>
-          </div>
+          </button>
         </div>
 
         <MenuInferior />
