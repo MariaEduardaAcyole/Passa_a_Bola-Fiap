@@ -97,7 +97,7 @@ export default function FormJogo() {
       >
         <option value="">Selecione o campo</option>
         {campos.map((campo) => (
-        <option key={campo.id} value={campo.id}>{campo.nome}</option>
+        <option key={campo.id_campo} value={campo.id_campo}>{campo.nome}</option>
 
         ))}
       </select>

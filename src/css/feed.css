@@ -1,268 +1,200 @@
-/* feed.css */
-:root {
-  --space-1: 8px;
-  --space-2: 12px;
-  --space-3: 16px;
-  --space-4: 20px;
-  --radius: 12px;
-}
-
-body { margin: 0; }
-
-/* Container do feed */
+/* FEED */
 .feed-container {
-  max-width: 960px;             /* cresce um pouco no desktop */
-  margin: 0 auto;               /* centraliza */
-  padding: var(--space-3);      /* respiro nas bordas no mobile */
-  font-family: Arial, sans-serif;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--space-3);          /* Espaço entre cards/form */
-}
-
-/* Título */
-.feed-title {
-  width: 100%;
-  text-align: center;
-  color: #6c2eb9;
-  margin: 0 0 var(--space-3);
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-}
-
-/* Form de postar rápido */
-.post-form {
-  background: #fff;
-  padding: var(--space-3);
-  border-radius: var(--radius);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
-  width: 100%;                  /* full no mobile */
-  max-width: 720px;             /* limita no desktop */
+  gap: 20px;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.post-form textarea {
-  width: 100%;
-  min-height: 96px;
-  resize: vertical;             /* permite expandir se precisar */
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
-.btn-post {
-  align-self: flex-end;
-  background: var(--roxo);
-  color: #fff;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-.btn-post:hover { background: var(--roxo-forte); }
-
-/* Card do post */
+/* POST CARD */
 .post-card {
   background: #fff;
-  border-radius: var(--radius);
-  border: 1px solid #000;
-  padding: 12px;
-  width: 100%;                  /* 1 coluna no mobile */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.2s ease;
 }
 
+.post-card:hover {
+  transform: translateY(-2px);
+}
+
+/* HEADER */
 .post-header {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 10px;
 }
 
 .avatar {
-  width: 40px; height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  flex: 0 0 40px;
+  object-fit: cover;
 }
 
-.username { font-weight: bold; color: #333; }
+.username {
+  font-weight: 600;
+  font-size: 15px;
+  color: #333;
+}
 
-.post-text { margin-bottom: 10px; color: #444; line-height: 1.45; }
+/* TEXTO E IMAGEM */
+.post-text {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.4;
+}
 
 .post-img {
-  display: block;
   width: 100%;
-  height: auto;                 /* evita distorção */
-  border-radius: 10px;
-  margin-bottom: 10px;
+  border-radius: 12px;
+  object-fit: cover;
+  max-height: 350px;
 }
 
+/* AÇÕES */
 .post-actions {
   display: flex;
-  gap: 10px;
-  justify-content: center;
+  align-items: center;
+  gap: 8px;
 }
 
 .btn-action {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 6px 8px;             /* aumenta área de toque */
+  padding: 0;
 }
 
 .icon-coracao {
-  width: 22px; height: 22px;
-  transition: transform 0.2s;
+  width: 24px;
+  height: 24px;
+  transition: transform 0.2s ease, filter 0.2s ease;
 }
-.btn-action:hover .icon-coracao { transform: scale(1.2); }
 
-/* Botão flutuante (FAB) */
+.btn-action.liked .icon-coracao {
+  transform: scale(1.3);
+  filter: drop-shadow(0 0 6px rgba(255, 0, 90, 0.6));
+}
+
+/* CURTIDAS */
+.post-actions span {
+  font-size: 13px;
+  color: #555;
+}
+
+/* FLOATING ACTION BUTTON */
 .fab {
   position: fixed;
-  right: 16px;
-  bottom: 16px;                 /* mais seguro no mobile */
-  z-index: 150;                 /* abaixo da topbar (200) e acima do conteúdo */
-  background: var(--rosa-claro);
-  color: #fff;
+  bottom: 80px;
+  right: 20px;
+background: radial-gradient(circle,rgba(125, 13, 139, 1) 0%, rgba(114, 74, 112, 1) 100%);
+
   border: none;
   border-radius: 50%;
-  width: 56px; height: 56px;
-  font-size: 22px;
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
 }
-.fab:hover { background: #541f8a; }
 
-/* Modal */
+.fab:hover {
+  transform: scale(1.1);
+}
+
+.icone {
+  width: 26px;
+  height: 26px;
+  filter: invert(1);
+}
+
+/* MODAL */
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: var(--space-3);      /* evita colar nas bordas no mobile */
-  z-index: 300;                 /* acima de tudo */
+  animation: fadeIn 0.3s ease;
 }
 
 .modal-content {
   background: #fff;
-  border-radius: var(--radius);
+  border-radius: 16px;
   padding: 20px;
-  width: 100%;
+  width: 90%;
   max-width: 420px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .modal-content h2 {
-  margin: 0 0 10px;
-  color: #6c2eb9;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .modal-content textarea {
   width: 100%;
-  min-height: 120px;
-  resize: vertical;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  min-height: 100px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
   padding: 10px;
-  margin-bottom: 10px;
+  font-size: 14px;
+  resize: none;
 }
-
-.modal-content input[type="file"] { margin-bottom: 15px; }
 
 .modal-actions {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
-  flex-wrap: wrap;              /* quebra em telas pequenas */
+}
+
+.btn-cancel,
+.btn-post {
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .btn-cancel {
-  background: #ccc;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-.btn-cancel:hover { background: #aaa; }
-
-/* Rodapé do feed */
-.feed-rodape{
-  width: 100%;
-  min-height: 30vh;
+  background: #f2f2f2;
+  color: #555;
 }
 
-/* ===== Breakpoints ===== */
-
-/* ≥ 600px: melhora tipografia e espaçamentos */
-@media (min-width: 600px) {
-  .post-form { padding: 18px; }
-  .post-card { padding: 14px; }
-}
-
-/* ≥ 768px: 2 colunas para cards */
-@media (min-width: 768px) {
-  .post-card {
-    width: calc(50% - var(--space-3));  /* 2 colunas */
-  }
-}
-
-/* ≥ 1024px: 3 colunas se quiser densidade maior */
-@media (min-width: 1024px) {
-  .feed-container { max-width: 1100px; }
-  .post-card { width: calc(33.333% - var(--space-3)); }
-  .post-form { max-width: 100%; }       /* form continua full width no topo */
-}
-
-/* Telas muito pequenas (≤ 360px): botões full e fontes suaves */
-@media (max-width: 360px) {
-  .btn-post,
-  .btn-action { width: 100%; }
-  .post-actions { justify-content: space-between; }
-}
-
-/* ========= ADIÇÕES PARA TOPBAR FIXA E LARGURA ALINHADA ========= */
-:root{
-  --page-max: 960px;        /* mesmo max-width do feed-container */
-  --topbar-h-sm: 56px;      /* altura mobile */
-  --topbar-h-lg: 64px;      /* altura tablet/desktop */
-  --bottomnav-h: 64px;      /* ajuste conforme a altura do MenuInferior */
-}
-
-/* Barra fixa no topo */
-.feed-topbar{
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 200;
-  background: #6c2eb9;
+.btn-post {
+background: radial-gradient(circle,rgba(125, 13, 139, 1) 0%, rgba(114, 74, 112, 1) 100%);
   color: #fff;
-  border-bottom: 1px solid #5a2a8e;
 }
 
-/* Conteúdo interno com a mesma largura do feed */
-.feed-topbar__inner{
-  height: var(--topbar-h-sm);
-  max-width: var(--page-max);
-  margin: 0 auto;
-  padding: 0 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+/* ANIMAÇÕES */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.tags {
+  font-size: 13px;
+  color: #6a11cb;
+  font-weight: 500;
 }
 
-@media (min-width: 768px){
-  .feed-topbar__inner{ height: var(--topbar-h-lg); }
-}
-
-/* Compensa a altura da topbar e (opcional) do menu inferior fixo */
-.page-main{
-  padding-top: var(--topbar-h-sm);
-  padding-bottom: var(--bottomnav-h);   /* retire se o MenuInferior não for fixo */
-}
-@media (min-width: 768px){
-  .page-main{ padding-top: var(--topbar-h-lg); }
+.tags-preview {
+  font-size: 13px;
+  color: #2575fc;
+  margin-top: 6px;
 }

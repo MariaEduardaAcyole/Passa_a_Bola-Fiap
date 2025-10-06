@@ -1,27 +1,71 @@
-//UltimoResultado.js
-import Image from "next/image";
+"use client";
 
-export default function UltimoResultado({ dia, mesAno, diaSemana, local }) {
+import { useEffect, useState } from "react";
+
+
+export default function UltimoResultado() {
+  const [ultimosJogos, setUltimosJogos] = useState([]);
+
+  useEffect(() => {
+    async function fetchJogos() {
+      try {
+        const res = await fetch("http://localhost:8000/jogos");
+        const data = await res.json();
+
+        if (data.jogos && data.jogos.length > 0) {
+          setUltimosJogos(data.jogos.slice(0, 10)); // só 10 jogos
+        }
+      } catch (error) {
+        console.error("Erro ao buscar jogos:", error);
+      }
+    }
+
+    fetchJogos();
+  }, []);
+
   return (
     <div className="home-container-resultado">
       <div className="home-caixa-ultimo-resultado">
         <img src="/img/icon-taca.png" className="home-icon-taca" />
-        <h2 className="text-xl font-bold mb-2 home-titulo-2 home-titulo-resultado">Ultimo Resultado</h2>
-        <img src="/img/bandeira-argentina.png" className="home-bandeira-argentina-resultado" />
+        <h2 className="text-xl font-bold mb-4 home-titulo-2 home-titulo-resultado">
+          Últimos Jogos do Brasileirao Feminino
+        </h2>
 
-        <h1 className="home-placar-resultado">3 vs 0</h1>
-        <img src="/img/bandeira-brasil.png" className="home-bandeira-brasil-resultado" />
-        <h3 className=" font-light text-xs text-gray home-data-jogo-resultado">15/9</h3>
-      </div>
-      <div className="home-caixa-proximo-jogo">
-        <img src="/img/icon-calendario.png" className="home-icon-taca" />
-        <h2 className="text-xl font-bold mb-2 home-titulo-2 home-titulo-resultado">Próximo Jogo</h2>
-        <img src="/img/bandeira-argentina.png" className="home-bandeira-argentina-resultado" />
-        <h1 className="home-placar-resultado"> vs </h1>
-        <img src="/img/bandeira-brasil.png" className="home-bandeira-brasil-resultado" />
-        <h3 className=" font-light text-xs text-gray home-data-jogo-resultado">15/9</h3>
-      </div>
+        {ultimosJogos.length > 0 ? (
+          <div className="grid-jogos">
+            {ultimosJogos.map((jogo, index) => (
+              <div key={index} className="card-jogo">
+                <div className="card-data">{jogo.data}</div>
 
+                <div className="card-content">
+                  <div className="time-nome time-mandante">
+                    {jogo.mandante}
+                  </div>
+
+                  <div className="placar-box">
+                    <div className="placar-texto">
+                      {jogo.placar || "- x -"}
+                    </div>
+                  </div>
+
+                  <div className="time-nome time-visitante">
+                    {jogo.visitante}
+                  </div>
+                </div>
+
+                <div className="card-footer">
+                  <div className="barra-decorativa"></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="loading-container">
+            <div className="spinner"></div>
+            <p className="loading-texto">Carregando jogos...</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

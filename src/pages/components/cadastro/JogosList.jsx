@@ -16,67 +16,42 @@ export default function JogosList() {
   const fetchJogos = async () => {
     const { data, error } = await supabase
       .from("jogos")
-      .select(`*, campos:local (nome, foto_url)`)
+      .select(`*, campos:local(nome, foto_url)`)
       .order("data_jogo", { ascending: true });
 
-    if (error) {
-      console.error("Erro ao buscar jogos:", error);
-    } else {
-      setJogos(data);
-    }
+    if (error) console.error("Erro ao buscar jogos:", error);
+    else setJogos(data);
   };
 
-  // Busca o atleta logado no localStorage
+  // Busca o atleta logado
   const fetchAtletaLogado = () => {
     const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
-    if (!usuarioLogado) {
-      console.log("Nenhum usuário logado");
-      return;
-    }
-
-    if (!usuarioLogado.atletaId) {
-      console.log("Usuário logado não é atleta");
-      return;
-    }
-
+    if (!usuarioLogado || !usuarioLogado.atletaId) return;
     setAtleta({ id: usuarioLogado.atletaId });
   };
 
-  // Função para inscrever usuário em um jogo
+  // Função para inscrever usuário
   const inscreverUsuario = async (atletaId, jogoId, maxJogadoras) => {
-    if (!atletaId) {
-      alert("Usuário não é atleta, não pode se inscrever.");
-      return;
-    }
+    if (!atletaId) return;
 
-    // Conta quantos atletas já estão inscritos confirmados
+    // Conta quantos atletas já estão confirmados
     const { count, error: countError } = await supabase
       .from("inscricoes")
       .select("*", { count: "exact", head: true })
       .eq("id_jogo", jogoId)
       .eq("status", "confirmada");
 
-    if (countError) {
-      console.error("Erro ao contar inscritos:", countError);
-      return;
-    }
+    if (countError) throw countError;
 
     const status = count < maxJogadoras ? "confirmada" : "espera";
 
-    // Insere a inscrição
     const { error } = await supabase
       .from("inscricoes")
       .insert([{ id_atleta: atletaId, id_jogo: jogoId, status }]);
 
-    if (error) {
-      console.error("Erro ao inscrever atleta:", error);
-    } else {
-      alert(
-        status === "confirmada"
-          ? "Inscrição confirmada!"
-          : "Entrou na lista de espera."
-      );
-    }
+    if (error) throw error;
+
+    return status; // retorna para o BotaoInscricao saber qual status
   };
 
   return (
@@ -118,16 +93,11 @@ export default function JogosList() {
                 </p>
               </div>
 
-              <span className={`status status-${j.status.toLowerCase()}`}>
-                {j.status}
-              </span>
-
-          {atleta ? (
+              {atleta ? (
                 <BotaoInscricao
                   atleta={atleta}
                   jogo={j}
                   inscreverUsuario={inscreverUsuario}
-                  className="btn-inscricao"
                 />
               ) : (
                 <p>Carregando botão...</p>
@@ -139,3 +109,4 @@ export default function JogosList() {
     </div>
   );
 }
+
