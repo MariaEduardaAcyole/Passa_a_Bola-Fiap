@@ -25,6 +25,7 @@ export default function Home() {
       <style>{`
         /* Reset e Base */
         .home-dashboard {
+          width? 100%;
           min-height: 100vh;
           background: linear-gradient(135deg, #f5f3ff 0%, #ffffff 50%, #fdf2f8 100%);
           padding-bottom: 80px;
@@ -441,7 +442,7 @@ export default function Home() {
         /* Responsividade */
         @media (min-width: 768px) {
           .home-dashboard {
-            max-width: 480px;
+            max-width: 100%;
             margin: 0 auto;
           }
 
@@ -549,8 +550,9 @@ export default function Home() {
           </button>
         </div>
 
-        <MenuInferior />
+
       </div>
+      <MenuInferior />
     </>
   );
 }

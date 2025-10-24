@@ -11,14 +11,15 @@
   justify-content: space-around;
   align-items: center;
   z-index: 1000;
+
 }
 
-footer{
-    height: 18rem;
+footer {
+  height: 18rem;
 }
 
-@media (min-width:780px) {
+/* @media (min-width:780px) {
   .MenuInferior-nav-inferior{
     display: none;
   }
-}
+} */
