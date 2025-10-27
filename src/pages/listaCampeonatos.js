@@ -13,9 +13,7 @@ export default function ListaCampeonatos() {
       <h3 className="listaCampeonatos-subtitulo">Escolha em qual campeonato você quer participar</h3>
 
       <section className="containerCampeonatos">
-        <ItemCampeonato />
-        <ItemCampeonato />
-        <ItemCampeonato />
+
       </section>
 
       {/* Menu Inferior */}
