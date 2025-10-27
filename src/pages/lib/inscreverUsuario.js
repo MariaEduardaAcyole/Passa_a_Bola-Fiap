@@ -1,4 +1,4 @@
-import { supabase } from "../../../lib/supabaseClient"; // ajuste o caminho conforme seu projeto
+import supabase from "../../../lib/supabaseClient"; // ajuste o caminho conforme seu projeto
 
 export async function inscreverUsuario(idAtleta, idJogo, status) {
   try {
