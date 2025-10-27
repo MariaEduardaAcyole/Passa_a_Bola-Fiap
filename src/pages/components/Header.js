@@ -1,6 +1,8 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Header() {
   const router = useRouter();
@@ -21,45 +23,80 @@ export default function Header() {
 
   return (
     <header className="mb-12 Header-header">
-      <img width={36} height={36} src="/img/logopassabola - semtexto.png" />
+      <Image 
+        width={36} 
+        height={36} 
+        src="/img/logopassabola - semtexto.png" 
+        alt="Logo Passabola"
+      />
       <h1 className="text-xl font-bold Header-titulo-header">{title}</h1>
 
       <nav className="menu-hamburguer">
         <input type="checkbox" id="menu-toggle" />
-        <label for="menu-toggle" className="menu-icon">
+        <label htmlFor="menu-toggle" className="menu-icon">
           ☰
         </label>
 
         <ul className="menu-links">
           <li>
-            <a href="/home">
-              <img src="/img/icon-home.png" className="header-icon"></img>
+            <Link href="/home">
+              <Image 
+                src="/img/icon-home.png" 
+                className="header-icon" 
+                alt="Home"
+                width={24}
+                height={24}
+              />
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/perfil">
-              <img src="/img/icon-perfil.png" className="header-icon"></img>
+            <Link href="/perfil">
+              <Image 
+                src="/img/icon-perfil.png" 
+                className="header-icon" 
+                alt="Perfil"
+                width={24}
+                height={24}
+              />
               Perfil
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/Cadastro">
-              <img src="/img/icon-config.png" className="header-icon"></img>
+            <Link href="/Cadastro">
+              <Image 
+                src="/img/icon-config.png" 
+                className="header-icon" 
+                alt="Cadastros"
+                width={24}
+                height={24}
+              />
               Cadastros
-            </a>{" "}
+            </Link>
           </li>
-            <li>
-            <a href="/feed">
-              <img src="/img/icon-estrela.png" className="header-icon"></img>
+          <li>
+            <Link href="/feed">
+              <Image 
+                src="/img/icon-estrela.png" 
+                className="header-icon" 
+                alt="Feed"
+                width={24}
+                height={24}
+              />
               Feed
-            </a>{" "}
+            </Link>
           </li>
-            <li>
-            <a href="/jogos">
-              <img src="/img/icon-campo.png" className="header-icon"></img>
+          <li>
+            <Link href="/jogos">
+              <Image 
+                src="/img/icon-campo.png" 
+                className="header-icon" 
+                alt="Jogos"
+                width={24}
+                height={24}
+              />
               Jogos
-            </a>{" "}
+            </Link>
           </li>
         </ul>
       </nav>
