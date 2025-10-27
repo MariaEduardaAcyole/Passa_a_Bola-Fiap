@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { supabase } from "../../../../lib/supabaseClient";
+import { supabase } from "../../../lib/supabaseClient";
 
 export default function FormJogo() {
   const [form, setForm] = useState({
@@ -97,7 +97,7 @@ export default function FormJogo() {
       >
         <option value="">Selecione o campo</option>
         {campos.map((campo) => (
-        <option key={campo.id_campo} value={campo.id_campo}>{campo.nome}</option>
+          <option key={campo.id_campo} value={campo.id_campo}>{campo.nome}</option>
 
         ))}
       </select>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { supabase } from "../../../../lib/supabaseClient";
+import { supabase } from "../../../lib/supabaseClient";
 import { Calendar, Clock, MapPin, Users, DollarSign } from "lucide-react";
 import BotaoInscricao from "./BotaoInscricao";
 

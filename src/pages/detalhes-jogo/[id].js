@@ -1,7 +1,7 @@
 //[id].js
 import { useRouter } from "next/router";
-import MenuInferior from "../components/MenuInferior";
-import Header from "../components/Header";
+import MenuInferior from "../../components/MenuInferior";
+import Header from "../../components/Header";
 
 export default function DetalhesJogo() {
   const router = useRouter();
@@ -32,7 +32,7 @@ export default function DetalhesJogo() {
           <input type="text" defaultValue="19h" />
         </label>
 
-          <img src="/img/campo.svg" className="detalhesJogo-img-campo" />
+        <img src="/img/campo.svg" className="detalhesJogo-img-campo" />
 
 
         <label className="detalhesJogo-campo">
@@ -41,7 +41,7 @@ export default function DetalhesJogo() {
         </label>
 
         <label className="detalhesJogo-localizacao">
-         
+
           Localização:
           <input type="text" defaultValue="Av. Futebolistica 111 - Tatuapé" />
         </label>
@@ -64,7 +64,7 @@ export default function DetalhesJogo() {
         <button className="detalhesJogo-botao-salvar">Salvar Alterações</button>
       </div>
 
-<footer></footer>
+      <footer></footer>
       <MenuInferior />
 
     </div>

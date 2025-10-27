@@ -1,9 +1,9 @@
 // home.js
-import CardJogo from "../pages/components/CardJogo";
-import UltimoResultado from "../pages/components/UltimoResultado";
-import MenuInferior from "../pages/components/MenuInferior";
-import Header from "../pages/components/Header";
-import Clima from "../pages/components/Clima";
+import CardJogo from "../components/CardJogo";
+import UltimoResultado from "../components/UltimoResultado";
+import MenuInferior from "../components/MenuInferior";
+import Header from "../components/Header";
+import Clima from "../components/Clima";
 import { useRouter } from 'next/router';
 
 export default function Home() {

@@ -3,8 +3,8 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "../../lib/supabaseClient";
-import MenuInferior from "../pages/components/MenuInferior";
-import Header from "../pages/components/Header";
+import MenuInferior from "../components/MenuInferior";
+import Header from "../components/Header";
 
 export default function Perfil() {
   const router = useRouter();
@@ -134,10 +134,10 @@ export default function Perfil() {
         {/* NOTIFICAÇÕES */}
         <section className="perfil-notificacoes">
           <h2 className="perfil-titulo-secoes">🔔 Notificações</h2>
-<div className="notificacao"> <strong>Novo jogo disponível</strong> <p className="perfil-conteudo-notificacao">Você pode se inscrever no jogo de sábado às 15h.</p> <span className="notificacao-data">02/10/2025</span> <div className="notificacao-acoes"> <button className="btn-acao">Ver jogo</button> <button className="btn-cancelar">✕</button> </div> </div> <div className="notificacao"> <strong>Confirmação de inscrição</strong> <p>Sua inscrição no campeonato de futsal foi confirmada ✅</p> <span className="notificacao-data">01/10/2025</span> <div className="notificacao-acoes"> <a href="/meus-jogos" className="link-feed">Ver detalhes</a> </div> </div> <div className="notificacao"> <strong>Lista de espera</strong> <p>Você entrou na lista de espera do jogo de domingo.</p> <span className="notificacao-data">30/09/2025</span> <div className="notificacao-acoes"> <button className="btn-acao">Ver jogo</button> </div> </div> </section> </div>
+          <div className="notificacao"> <strong>Novo jogo disponível</strong> <p className="perfil-conteudo-notificacao">Você pode se inscrever no jogo de sábado às 15h.</p> <span className="notificacao-data">02/10/2025</span> <div className="notificacao-acoes"> <button className="btn-acao">Ver jogo</button> <button className="btn-cancelar">✕</button> </div> </div> <div className="notificacao"> <strong>Confirmação de inscrição</strong> <p>Sua inscrição no campeonato de futsal foi confirmada ✅</p> <span className="notificacao-data">01/10/2025</span> <div className="notificacao-acoes"> <a href="/meus-jogos" className="link-feed">Ver detalhes</a> </div> </div> <div className="notificacao"> <strong>Lista de espera</strong> <p>Você entrou na lista de espera do jogo de domingo.</p> <span className="notificacao-data">30/09/2025</span> <div className="notificacao-acoes"> <button className="btn-acao">Ver jogo</button> </div> </div> </section> </div>
 
 
-    
+
 
       {/* SEÇÕES: JOGOS */}
       <section className="caixa-perfil-jogos">

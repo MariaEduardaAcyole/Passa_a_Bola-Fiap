@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { supabase } from "../../lib/supabaseClient";
-import Header from "../pages/components/Header";
-import MenuInferior from "../pages/components/MenuInferior";
+import Header from "../components/Header";
+import MenuInferior from "../components/MenuInferior";
 
 export default function Feed() {
   const [showForm, setShowForm] = useState(false);
@@ -123,7 +123,7 @@ export default function Feed() {
                 <span>{post.curtidas} curtidas</span>
 
                 <button className="btn-action" onClick={() => handleRepublicar(post.id)}>
-<img src="/img/icon-republicar.png" className="icon-coracao"/>                </button>
+                  <img src="/img/icon-republicar.png" className="icon-coracao" />                </button>
                 <span>{post.curtidas} republicados</span>
 
               </div>
